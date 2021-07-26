@@ -36,6 +36,8 @@ int main()
 
 		getline(cin, ip);
 
+		unspc(ip); // i missed it... 😭🤬🤬🤪😵🥴 reminds me of some stupid anime character...
+
 		transform(ip.begin(), ip.end(), ip.begin(), ::tolower);
 
 		if (ip == "")
