@@ -14,6 +14,15 @@ string ip = "", m = "(cmd)", pm = "==>   ";
 
 int index = 0, len = 0;
 
+long long pow(int8_t num, int8_t count)
+{
+	long long res = 1;
+	for (int i = 0; i < count; i++)
+		res *= num;
+	return res;
+}
+
+
 bool ckd(char& c, bool ck = false, bool r = false, bool is_p = false, bool is_ve = false)
 {
 	bool omg = true;
