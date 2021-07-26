@@ -64,7 +64,7 @@ int main()
 		{
 			if (ip == "/h" || ip == "/help")
 			{
-
+				prl("help");
 			}
 			else if (ip == "/s" || ip == "/str" || ip == "/start")
 			{
@@ -73,7 +73,7 @@ int main()
 			}
 			else if (ip == "/ust")
 			{
-				
+				prl("ust");
 			}
 			else
 			{
@@ -110,6 +110,52 @@ int main()
 				ec++;
 			}
 		}
-
+		else if (m == "(calc)")
+		{
+			if (ip == "/ust")
+			{
+				prl("ust");
+			}
+			else if (ip == "/q")
+			{
+				m = "(cmd)";
+				pm = "==>   ";
+			}
+			else if (ip == "/h" || ip == "/help")
+			{
+				prl("help");
+			}
+			else if (validex(ip))
+			{
+				prl("good lewd valid");
+			}
+			else
+			{
+				if (ecc < 2)
+				{
+					prl("Error-_-.");
+				}
+				else if (ecc < 6)
+				{
+					pr("Wtf!? You\'ve already made ");
+					pr(static_cast<int16_t>(ecc));
+					prl(" errors");
+				}
+				else if (ecc < 8)
+				{
+					prl("Yamero! Baka! You've got my processor on fire");
+				}
+				else if (ecc < 10)
+				{
+					prl("Kisama wa baaaka ga?");
+				}
+				else
+				{
+					RUN = false;
+					break;
+				}
+				ecc++;
+			}
+		}
 	}
 }
