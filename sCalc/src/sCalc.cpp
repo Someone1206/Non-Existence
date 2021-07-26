@@ -163,4 +163,9 @@ int main()
 			}
 		}
 	}
+
+	WAIT(450);
+	prl("Matane!");
+	WAIT(350);
+	prl("\t\t\t\t\tor sayonara! I guess?");
 }

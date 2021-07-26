@@ -12,9 +12,22 @@ bool RUN = true;
 
 string ip = "", m = "(cmd)", pm = "==>   ";
 
+#if _WIN32
+#include <Windows.h>
+#define WAIT(t) Sleep(t)
+#else
+#include <unistd.h>
+#define WAIT(t) usleep(t * 1000)  // deprecated but okay
+#endif // _WIN32
+
+
+
 int index = 0, len = 0;
 
 int8_t h = 0, hc = 0;
+
+
+
 
 void selft(int8_t mode)
 {
