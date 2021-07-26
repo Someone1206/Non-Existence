@@ -2,7 +2,7 @@
 ---
 ##### =======================You may get brain strokes while reading this disclaimer cuz its horrible english=========================  
 ---
-Thi calculator can cause a number of diseases from 'Brain Aches' to brain cancer, epilepsy, death of 98.569% of your neurons (but certainly not AIDS or any other STIs i.e. [if you know what I mean]).  
+The calculator can cause a number of diseases from 'Brain Aches' to brain cancer, epilepsy, death of 98.569% of your neurons (but certainly not AIDS or any other STIs i.e. [if you know what I mean]).  
 ### Use it at your own risk...  
 
 Please stay atleast a meter away from your screen/monitor cuz you may be tempted to punch it(***xactly how Armin punched Eren in s4 ep14 [Yeah the monitor won't be able to punch you back like Eren did cuz it probably won't exist by then])***  
@@ -16,3 +16,5 @@ You may fully and completely reformat your drive if you don't know how to reset 
 ***The latest releases are provided cuz it's a pain to compile the files once again. The outputs were created in Win10 x64 and linux x64 but may also work for x86***  
 
 a mac is far out of my reach. Can't even set a virtual machine...
+
+this ain't a goddamn virus, Win10 says its a virus (y god?😭😭) but it's completely safe.
