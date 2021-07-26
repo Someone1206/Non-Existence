@@ -42,7 +42,6 @@ int main()
 		{
 			continue;
 		}
-
 		else if (ip == "/abt" || ip == "/about")
 		{
 			prl("Version 1");
@@ -64,7 +63,7 @@ int main()
 		{
 			if (ip == "/h" || ip == "/help")
 			{
-				prl("help");
+				help(); // good lord it's 'K'lean af 😉
 			}
 			else if (ip == "/s" || ip == "/str" || ip == "/start")
 			{
@@ -73,7 +72,7 @@ int main()
 			}
 			else if (ip == "/ust")
 			{
-				prl("ust");
+				selft(1); // ah... it's so 'K'lean 😊
 			}
 			else
 			{
@@ -114,7 +113,7 @@ int main()
 		{
 			if (ip == "/ust")
 			{
-				prl("ust");
+				selft(2); // 'K'LEAN 👌👌
 			}
 			else if (ip == "/q")
 			{
@@ -123,7 +122,8 @@ int main()
 			}
 			else if (ip == "/h" || ip == "/help")
 			{
-				prl("help");
+				helpc(); // リヴァイ　アッケルマン　move \'KLEANLINESS'/
+				// okay i'm just insulting him... sad lyfe 😥😢
 			}
 			else if (validex(ip))
 			{
