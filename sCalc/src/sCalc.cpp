@@ -127,7 +127,10 @@ int main()
 			}
 			else if (validex(ip))
 			{
-				prl("good lewd valid");
+				prl("---------------------------------------");
+				pr("Result:\t");
+				prl(expr(ip));
+				prl("---------------------------------------");
 			}
 			else
 			{
