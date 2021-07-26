@@ -14,6 +14,156 @@ string ip = "", m = "(cmd)", pm = "==>   ";
 
 int index = 0, len = 0;
 
+int8_t h = 0, hc = 0;
+
+void selft(int8_t mode)
+{
+	switch (mode)
+	{
+	case 1:					// cmd
+		prl("\t(cmd)==>   /      s");
+		prl("\t(calc)==>");
+		prl("\t**next**");
+		prl("\t(cmd)==>   / q  \tq");
+		prl("\t***it ends itself***");
+		prl("\t***nvm next***");
+		prl("\t(cmd)==>   / s 	T a\t\t Rt");
+		prl("\t(calc)==>");
+		prl("\t\t\t***after some 10 erros (idk i never counted meh)***");
+		prl("\t\t\t***it dies cuz it hates me(as if anything likes me).***");
+		prl("");
+		break;
+	case 2:					// calc
+		prl("\t(calc)==>   +++5+++4----1");
+		prl("\tResult: 10");
+		prl("\t(calc)==>   --5--4--1");
+		prl("\tResult: 10");
+		prl("\t(calc>==>   5  0       +		3  0  -               8             0");
+		prl("\tResult: 0");
+		prl("\t\t\t***after 10 errors***");
+		prl("\t\t\t***it dies, cuz it hates me(creator)");
+		prl("");
+		break;
+	default:
+		break;
+	}
+}
+
+
+void help()
+{
+	if (h < 2)
+	{
+		prl("   Type \'/h\'   (without the quotes) and press enter for help,");
+		prl("   Type \'/qq\'  (without the quotes) and press enter to quit this crap,");
+		prl("   Type \'/s\'   (without the quotes) and press enter to start calculating.");
+		prl("   Type \'/abt\'   (without the quotes) and press enter to know about me(creator ofc) and this calculator.");
+		prl("   Type \'/ust\' (without the quotes) and press enter to show how it works(why?).");
+		prl("   Alternates for /s -> /str, /start;");
+		prl("   ALternates for /h -> /help.");
+	}
+	else if (h < 3)
+	{
+		prl("   WUt!?");
+		prl("   \'/h\'   for help,");
+		prl("   \'/qq\'  to quit this crap,");
+		prl("   \'/s\'   to start calculating.");
+		prl("   \'/abt\' to know about me(creator ofc) and this calculator.");
+		prl("   \'/ust\' to show how it works(why?).");
+		prl("   Alternates for /s -> /str, /start;");
+		prl("   ALternates for /h -> /help.");
+	}
+	else if (h < 5)
+	{
+		prl("   You have already asked help many times");
+		prl("   \'/h\'   for help,");
+		prl("   \'/qq\'  to quit this crap,");
+		prl("   \'/s\'   to start calculating.");
+		prl("   \'/abt\' to know about me and this calculator.");
+		prl("   \'/ust\' to show how it works(why?).");
+	}
+	else if (h < 7)
+	{
+		prl("   \'/h\'   for help,");
+		prl("   \'/qq\'  to quit this crap,");
+		prl("   \'/s\'   to start calculating.");
+		prl("   \'/abt\' to know about me and this calculator.");
+		prl("   \'/ust\' to show how it works(why?).");
+	}
+	else
+	{
+		prl("   \'/h\'   for help,");
+		prl("   \'/qq\'  to quit this crap,");
+		prl("   \'/s\'   to start calculating.");
+		prl("   \'/abt\' to know about me and this calculator.");
+		prl("   \'/ust\' to show how it works(why?).");
+		if (h == 7)
+		{
+			prl("   Its always good to help so I won\'t quit :|");
+			h++;
+		}
+		return;
+	}
+	h++;
+}
+
+void helpc()
+{
+	if (hc < 1)
+	{
+		prl("   Type \'/h\'   (without the quotes) and press enter for help,");
+		prl("   Type \'/qq\'  (without the quotes) and press enter to quit this crap,");
+		prl("   Type \'/q\'   (without the quotes) and press enter to go back to cmd mode(why?).");
+		prl("   Type \'/abt\'   (without the quotes) and press enter to know about me(creator ofc) and this calculator.");
+		prl("   Type \'/ust\' (without the quotes) and press enter to show how it works(why?).");
+		prl("   ALternates for /h -> /help.");
+	}
+	else if (hc < 2)
+	{
+		prl("   WUt!?");
+		prl("   \'/h\'   for help,");
+		prl("   \'/qq\'  to quit this crap,");
+		prl("   \'/abt\' to know about me(creator ofc) and this calculator.");
+		prl("   \'/q\'   to go back to cmd mode(why?).");
+		prl("   \'/ust\' to show how it works(why?).");
+		prl("   ALternates for /h -> /help.");
+	}
+	else if (hc < 3)
+	{
+		prl("   You have already asked help many times");
+		prl("   \'/h\'   for help,");
+		prl("   \'/qq\'  to quit this crap,");
+		prl("   \'/abt\' to know about me(creator ofc) and this calculator.");
+		prl("   \'/q\'   to go back to cmd mode(why?).");
+		prl("   \'/ust\' to show how it works(why?).");
+	}
+	else if (hc < 5)
+	{
+		prl("   \'/h\'   for help,");
+		prl("   \'/qq\'  to quit this crap,");
+		prl("   \'/abt\' to know about me and this calculator.");
+		prl("   \'/q\'   to go back to cmd mode(why?).");
+		prl("   \'/ust\' to show how it works(why?).");
+	}
+	else
+	{
+		prl("   \'/h\'   for help,");
+		prl("   \'/qq\'  to quit this crap,");
+		prl("   \'/q\'   to go back to cmd mode.");
+		prl("   \'/ust\' to show how it works(why?).");
+		if (hc == 5)
+		{
+			prl("   Its always good to help so I won\'t quit :)");
+			hc++;
+		}
+		return;
+	}
+	hc++;
+}
+
+
+
+
 long long pow(int8_t num, int8_t count)
 {
 	long long res = 1;
