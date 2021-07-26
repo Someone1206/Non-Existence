@@ -164,9 +164,9 @@ void helpc()
 
 
 
-long long pow(int8_t num, int8_t count)
+double long pow(int8_t num, int8_t count)
 {
-	long long res = 1;
+	double long res = 1;
 	for (int i = 0; i < count; i++)
 		res *= num;
 	return res;
