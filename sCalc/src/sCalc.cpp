@@ -1,4 +1,4 @@
-#include "annoyer.h"
+#include "annoyer.h";
 
 void unspc(string& inp)
 {
@@ -19,7 +19,7 @@ void unspc(string& inp)
 int main()
 {
 	bool first = true;
-	int8_t ec = 0, ecc = 0;
+	int8_t ec = 0, ecc = 0, hc = 0, hcc = 0;
 
 	while (RUN)
 	{
@@ -46,10 +46,9 @@ int main()
 		}
 		else if (ip == "/abt" || ip == "/about")
 		{
-			prl("Version 1");
+			prl("Version 1.1.0");
 			prl("This crap is obviously made by a depressed, lonely, mentally retarded and stupid 15 y/o kid");
 			prl("Umm... about this calculator--->");
-			prl("\tThis was developed over a period of 1 damn month.");
 			prl("\tIt dosen't support brackets of any form.");
 			prl("\tMicrosoft calculator is better (browsers are also better or you can try print(<expression>) in a python file). Don't even try this crap cuz it just not worth it.");
 			prl("");
@@ -65,7 +64,26 @@ int main()
 		{
 			if (ip == "/h" || ip == "/help")
 			{
-				help(); // good lord it's 'K'lean af 😉
+				// how to spoil things 😭
+				if (hc < 2)
+					prl(help[0]);
+				else if (hc < 3)
+					prl(help[1]);
+				else if (hc < 5)
+					prl(help[2]);
+				else if (hc < 7)
+					prl(help[3]);
+				else
+				{
+					prl(help[4]);
+					if (hc == 7)
+					{
+						prl("   Its always good to help so I won\'t quit :|");
+						hc++;
+					}
+					continue;
+				}
+				hc++;
 			}
 			else if (ip == "/s" || ip == "/str" || ip == "/start")
 			{
@@ -124,14 +142,33 @@ int main()
 			}
 			else if (ip == "/h" || ip == "/help")
 			{
-				helpc(); // リヴァイ　アッケルマン　move \'KLEANLINESS'/
-				// okay i'm just insulting him... sad lyfe 😥😢
+				// i hate myself, hope I never existed 😢😥😭
+				if (hcc < 1)
+					prl(helpc[0]);
+				else if (hcc < 2)
+					prl(helpc[1]);
+				else if (hcc < 3)
+					prl(helpc[2]);
+				else if (hcc < 5)
+					prl(helpc[3]);
+				else
+				{
+					prl(helpc[4]);
+					if (hcc == 5)
+					{
+						prl("   Its always good to help so I won\'t quit :)");
+						hcc++;
+					}
+					continue;
+				}
+				hcc++;
 			}
 			else if (validex(ip))
 			{
 				prl("---------------------------------------");
 				pr("Result:\t");
-				prl(expr(ip));
+				prl(expr(ip)); // リヴァイ　アッケルマン　move \'KLEANLINESS'/
+				// okay i'm just insulting him... sad lyfe 😥😢    ...heh eh 😭😭
 				prl("---------------------------------------");
 			}
 			else
@@ -164,7 +201,7 @@ int main()
 		}
 	}
 
-	
+
 	prl("Matane!");
 	WAIT(450);
 	prl("\t\t\t\t\tor sayonara! I guess?");
