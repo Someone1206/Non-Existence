@@ -24,10 +24,6 @@ string ip = "", m = "(cmd)", pm = "==>   ";
 
 int index = 0, len = 0;
 
-int8_t h = 0, hc = 0;
-
-
-
 
 void selft(int8_t mode)
 {
@@ -61,121 +57,6 @@ void selft(int8_t mode)
 		break;
 	}
 }
-
-
-void help()
-{
-	if (h < 2)
-	{
-		prl("   Type \'/h\'   (without the quotes) and press enter for help,");
-		prl("   Type \'/qq\'  (without the quotes) and press enter to quit this crap,");
-		prl("   Type \'/s\'   (without the quotes) and press enter to start calculating.");
-		prl("   Type \'/abt\'   (without the quotes) and press enter to know about me(creator ofc) and this calculator.");
-		prl("   Type \'/ust\' (without the quotes) and press enter to show how it works(why?).");
-		prl("   Alternates for /s -> /str, /start;");
-		prl("   ALternates for /h -> /help.");
-	}
-	else if (h < 3)
-	{
-		prl("   WUt!?");
-		prl("   \'/h\'   for help,");
-		prl("   \'/qq\'  to quit this crap,");
-		prl("   \'/s\'   to start calculating.");
-		prl("   \'/abt\' to know about me(creator ofc) and this calculator.");
-		prl("   \'/ust\' to show how it works(why?).");
-		prl("   Alternates for /s -> /str, /start;");
-		prl("   ALternates for /h -> /help.");
-	}
-	else if (h < 5)
-	{
-		prl("   You have already asked help many times");
-		prl("   \'/h\'   for help,");
-		prl("   \'/qq\'  to quit this crap,");
-		prl("   \'/s\'   to start calculating.");
-		prl("   \'/abt\' to know about me and this calculator.");
-		prl("   \'/ust\' to show how it works(why?).");
-	}
-	else if (h < 7)
-	{
-		prl("   \'/h\'   for help,");
-		prl("   \'/qq\'  to quit this crap,");
-		prl("   \'/s\'   to start calculating.");
-		prl("   \'/abt\' to know about me and this calculator.");
-		prl("   \'/ust\' to show how it works(why?).");
-	}
-	else
-	{
-		prl("   \'/h\'   for help,");
-		prl("   \'/qq\'  to quit this crap,");
-		prl("   \'/s\'   to start calculating.");
-		prl("   \'/abt\' to know about me and this calculator.");
-		prl("   \'/ust\' to show how it works(why?).");
-		if (h == 7)
-		{
-			prl("   Its always good to help so I won\'t quit :|");
-			h++;
-		}
-		return;
-	}
-	h++;
-}
-
-void helpc()
-{
-	if (hc < 1)
-	{
-		prl("   Type \'/h\'   (without the quotes) and press enter for help,");
-		prl("   Type \'/qq\'  (without the quotes) and press enter to quit this crap,");
-		prl("   Type \'/q\'   (without the quotes) and press enter to go back to cmd mode(why?).");
-		prl("   Type \'/abt\'   (without the quotes) and press enter to know about me(creator ofc) and this calculator.");
-		prl("   Type \'/ust\' (without the quotes) and press enter to show how it works(why?).");
-		prl("   ALternates for /h -> /help.");
-	}
-	else if (hc < 2)
-	{
-		prl("   WUt!?");
-		prl("   \'/h\'   for help,");
-		prl("   \'/qq\'  to quit this crap,");
-		prl("   \'/abt\' to know about me(creator ofc) and this calculator.");
-		prl("   \'/q\'   to go back to cmd mode(why?).");
-		prl("   \'/ust\' to show how it works(why?).");
-		prl("   ALternates for /h -> /help.");
-	}
-	else if (hc < 3)
-	{
-		prl("   You have already asked help many times");
-		prl("   \'/h\'   for help,");
-		prl("   \'/qq\'  to quit this crap,");
-		prl("   \'/abt\' to know about me(creator ofc) and this calculator.");
-		prl("   \'/q\'   to go back to cmd mode(why?).");
-		prl("   \'/ust\' to show how it works(why?).");
-	}
-	else if (hc < 5)
-	{
-		prl("   \'/h\'   for help,");
-		prl("   \'/qq\'  to quit this crap,");
-		prl("   \'/abt\' to know about me and this calculator.");
-		prl("   \'/q\'   to go back to cmd mode(why?).");
-		prl("   \'/ust\' to show how it works(why?).");
-	}
-	else
-	{
-		prl("   \'/h\'   for help,");
-		prl("   \'/qq\'  to quit this crap,");
-		prl("   \'/q\'   to go back to cmd mode.");
-		prl("   \'/ust\' to show how it works(why?).");
-		if (hc == 5)
-		{
-			prl("   Its always good to help so I won\'t quit :)");
-			hc++;
-		}
-		return;
-	}
-	hc++;
-}
-
-
-
 
 double long pow(int8_t num, int8_t count)
 {
@@ -428,3 +309,77 @@ double long expr(string& exp)
 	}
 	return res;
 }
+
+
+const char* help[5] = {
+	"   Type \'/h\'   (without the quotes) and press enter for help,\n"
+	"   Type \'/qq\'  (without the quotes) and press enter to quit this crap,\n"
+	"   Type \'/s\'   (without the quotes) and press enter to start calculating.\n"
+	"   Type \'/abt\'   (without the quotes) and press enter to know about me(creator ofc) and this calculator.\n"
+	"   Type \'/ust\' (without the quotes) and press enter to show how it works(why?).\n"
+	"   Alternates for /s -> /str, /start;\n"
+	"   ALternates for /h -> /help.",
+
+	"   WUt!?\n"
+	"   \'/h\'   for help,\n"
+	"   \'/qq\'  to quit this crap,\n"
+	"   \'/s\'   to start calculating.\n"
+	"   \'/abt\' to know about me(creator ofc) and this calculator.\n"
+	"   \'/ust\' to show how it works(why?).\n"
+	"   Alternates for /s -> /str, /start;\n"
+	"   ALternates for /h -> /help.\n",
+
+	"   You have already asked help many times\n"
+	"   \'/h\'   for help,\n"
+	"   \'/qq\'  to quit this crap,\n"
+	"   \'/s\'   to start calculating.\n"
+	"   \'/abt\' to know about me and this calculator.\n"
+	"   \'/ust\' to show how it works(why?).\n",
+
+	"   \'/h\'   for help,\n"
+	"   \'/qq\'  to quit this crap,\n"
+	"   \'/s\'   to start calculating.\n"
+	"   \'/abt\' to know about me and this calculator.\n"
+	"   \'/ust\' to show how it works(why?).\n",
+
+	"   \'/h\'   for help,\n"
+	"   \'/qq\'  to quit this crap,\n"
+	"   \'/s\'   to start calculating.\n"
+	"   \'/abt\' to know about me and this calculator.\n"
+	"   \'/ust\' to show how it works(why?).\n"
+};
+
+const char* helpc[5] = {
+	"   Type \'/h\'   (without the quotes) and press enter for help,\n"
+	"   Type \'/qq\'  (without the quotes) and press enter to quit this crap,\n"
+	"   Type \'/q\'   (without the quotes) and press enter to go back to cmd mode(why?).\n"
+	"   Type \'/abt\'   (without the quotes) and press enter to know about me(creator ofc) and this calculator.\n"
+	"   Type \'/ust\' (without the quotes) and press enter to show how it works(why?).\n"
+	"   ALternates for /h -> /help.\n",
+
+	"   WUt!?\n"
+	"   \'/h\'   for help,\n"
+	"   \'/qq\'  to quit this crap,\n"
+	"   \'/abt\' to know about me(creator ofc) and this calculator.\n"
+	"   \'/q\'   to go back to cmd mode(why?).\n"
+	"   \'/ust\' to show how it works(why?).\n"
+	"   ALternates for /h -> /help.\n",
+
+	"   You have already asked help many times\n"
+	"   \'/h\'   for help,\n"
+	"   \'/qq\'  to quit this crap,\n"
+	"   \'/abt\' to know about me(creator ofc) and this calculator.\n"
+	"   \'/q\'   to go back to cmd mode(why?).\n"
+	"   \'/ust\' to show how it works(why?).\n",
+
+	"   \'/h\'   for help,\n"
+	"   \'/qq\'  to quit this crap,\n"
+	"   \'/abt\' to know about me and this calculator.\n"
+	"   \'/q\'   to go back to cmd mode(why?).\n"
+	"   \'/ust\' to show how it works(why?).\n",
+
+	"   \'/h\'   for help,\n"
+	"   \'/qq\'  to quit this crap,\n"
+	"   \'/q\'   to go back to cmd mode.\n"
+	"   \'/ust\' to show how it works(why?).\n"
+};
