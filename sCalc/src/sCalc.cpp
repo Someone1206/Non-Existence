@@ -18,7 +18,9 @@ void unspc(string& inp)
 
 int main()
 {
-	bool first = true;
+	bool first = true, hap = 0, hapc = 0;
+	// hap -> help annoyed prompt, hapc -> help annoyed prompt calc
+	// my existence makes no sense
 	int8_t ec = 0, ecc = 0, hc = 0, hcc = 0;
 
 	while (RUN)
@@ -64,23 +66,14 @@ int main()
 		{
 			if (ip == "/h" || ip == "/help")
 			{
-				// how to spoil things 😭
-				if (hc < 2)
-					prl(help[0]);
-				else if (hc < 3)
-					prl(help[1]);
-				else if (hc < 5)
-					prl(help[2]);
-				else if (hc < 7)
-					prl(help[3]);
-				else
+				// how to spoil things 😭 II
+				prl(help[hc]);
+
+				if (hc == 4)
 				{
-					prl(help[4]);
-					if (hc == 7)
-					{
+					if (!hap)
 						prl("   Its always good to help so I won\'t quit :|");
-						hc++;
-					}
+					hap = 69;
 					continue;
 				}
 				hc++;
@@ -143,22 +136,12 @@ int main()
 			else if (ip == "/h" || ip == "/help")
 			{
 				// i hate myself, hope I never existed 😢😥😭
-				if (hcc < 1)
-					prl(helpc[0]);
-				else if (hcc < 2)
-					prl(helpc[1]);
-				else if (hcc < 3)
-					prl(helpc[2]);
-				else if (hcc < 5)
-					prl(helpc[3]);
-				else
+				prl(helpc[hcc]);
+				if (hcc == 4)
 				{
-					prl(helpc[4]);
-					if (hcc == 5)
-					{
+					if (!hapc)
 						prl("   Its always good to help so I won\'t quit :)");
-						hcc++;
-					}
+					hapc = 69;
 					continue;
 				}
 				hcc++;
