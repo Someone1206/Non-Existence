@@ -1,10 +1,10 @@
-#include "annoyer.h";
+#include "annoyer.h"
 
-void unspc(string& inp)
+void unspc(std::string& inp)
 {
-	short i = 0;
+	unsigned int i = 0;
 	char c;
-	string r = "";
+	std::string r = "";
 	for (i = 0; i < inp.length(); i++)
 	{
 		c = inp.at(i);
@@ -18,64 +18,51 @@ void unspc(string& inp)
 
 int main()
 {
-	bool first = true, hap = 0, hapc = 0;
-	// hap -> help annoyed prompt, hapc -> help annoyed prompt calc
+	std::string ip = "", m = "(cmd)", pm = "==>   ";
+
+	bool RUN = true, hap = false, hapc = false;
+	// hap -> help annoyed prompt?, hapc -> help annoyed prompt calc
 	// my existence makes no sense
-	int8_t ec = 0, ecc = 0, hc = 0, hcc = 0;
+	char ec = 0, ecc = 0, hc = 0, hcc = 0;
+
+	prl("This is a useless cli calculator");
+	prl("Depressing news, its neither space nor case sensitive           \'/h\' for help, \'/qq\' one of the thousand ways to quit");
+	prl("If you face any health issues and think its because of this then delete this crap from your drive.");
 
 	while (RUN)
 	{
-		if (first)
-		{
-			prl("This is a useless cli calculator");
-			prl("Depressing news, its neither space nor case sensitive           \'/h\' for help, \'/qq\' one of the thousand ways to quit");
-			prl("If you face any health issues and think its because of this then delete this crap from your drive.");
-			first = false;
-		}
-
 		pr(m);
 		pr(pm);
 
-		getline(cin, ip);
+		std::getline(std::cin, ip);
 
 		unspc(ip); // i missed it... 😭🤬🤬🤪😵🥴 reminds me of some stupid anime character...
 
-		transform(ip.begin(), ip.end(), ip.begin(), ::tolower);
+		std::transform(ip.begin(), ip.end(), ip.begin(), ::tolower);
 
 		if (ip == "")
 		{
-			continue;
+			// watch anime
 		}
 		else if (ip == "/abt" || ip == "/about")
 		{
-			prl("Version 1.1.0");
+			prl("Version 1.1.1");
 			prl("This crap is obviously made by a depressed, lonely, mentally retarded and stupid 15 y/o kid");
 			prl("Umm... about this calculator--->");
 			prl("\tIt dosen't support brackets of any form.");
+			prl("It is neither case nor space sensitive(literally)");
 			prl("\tMicrosoft calculator is better (browsers are also better or you can try print(<expression>) in a python file). Don't even try this crap cuz it just not worth it.");
 			prl("");
-			continue;
 		}
 		else if (ip == "/qq")
 		{
-			RUN = false;
 			break;
 		}
-
 		else if (m == "(cmd)")
 		{
 			if (ip == "/h" || ip == "/help")
 			{
-				// how to spoil things 😭 II
 				prl(help[hc]);
-
-				if (hc == 4)
-				{
-					if (!hap)
-						prl("   Its always good to help so I won\'t quit :|");
-					hap = 69;
-					continue;
-				}
 				hc++;
 			}
 			else if (ip == "/s" || ip == "/str" || ip == "/start")
@@ -85,7 +72,7 @@ int main()
 			}
 			else if (ip == "/ust")
 			{
-				selft(1); // ah... it's so 'K'lean 😊
+				prl(selft[0]); // ah... it's so 'K'lean 😊
 			}
 			else
 			{
@@ -96,7 +83,7 @@ int main()
 				else if (ec < 4)
 				{
 					pr("Wtf!? You\'ve already made ");
-					pr(static_cast<int16_t>(ec));
+					pr((int)ec);
 					prl(" errors");
 				}
 				else if (ec < 6)
@@ -116,7 +103,6 @@ int main()
 				}
 				else
 				{
-					RUN = false;
 					break;
 				}
 				ec++;
@@ -126,7 +112,7 @@ int main()
 		{
 			if (ip == "/ust")
 			{
-				selft(2); // 'K'LEAN 👌👌
+				prl(selft[1]); // 'K'LEAN 👌👌
 			}
 			else if (ip == "/q")
 			{
@@ -135,15 +121,9 @@ int main()
 			}
 			else if (ip == "/h" || ip == "/help")
 			{
-				// i hate myself, hope I never existed 😢😥😭
+				// i hope I never existed 😢😥😭
 				prl(helpc[hcc]);
-				if (hcc == 4)
-				{
-					if (!hapc)
-						prl("   Its always good to help so I won\'t quit :)");
-					hapc = 69;
-					continue;
-				}
+				
 				hcc++;
 			}
 			else if (validex(ip))
@@ -163,7 +143,7 @@ int main()
 				else if (ecc < 6)
 				{
 					pr("Wtf!? You\'ve already made ");
-					pr(static_cast<int16_t>(ecc));
+					pr((int)ecc);
 					prl(" errors");
 				}
 				else if (ecc < 8)
@@ -176,14 +156,12 @@ int main()
 				}
 				else
 				{
-					RUN = false;
 					break;
 				}
 				ecc++;
 			}
 		}
 	}
-
 
 	prl("Matane!");
 	WAIT(450);
