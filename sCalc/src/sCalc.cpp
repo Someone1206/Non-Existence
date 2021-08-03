@@ -1,4 +1,4 @@
-#include "annoyer.h"
+#include "fileIO.h"
 
 void unspc(std::string& inp)
 {
@@ -19,6 +19,15 @@ void unspc(std::string& inp)
 int main()
 {
 	std::string ip = "", m = "(cmd)", pm = "==>   ";
+	bool startCalc = false;
+	std::string fileName = "StupidCalculator.settings.wtaf";
+	startCalc = readFile(fileName);
+
+	if (startCalc)
+	{
+		m = "(calc)";
+		pm = "==>  ";
+	}
 
 	bool RUN = true, hap = false, hapc = false;
 	// hap -> help annoyed prompt?, hapc -> help annoyed prompt calc
@@ -58,6 +67,10 @@ int main()
 		{
 			break;
 		}
+		else if (ip == "/set-cs-1" || ip == "/set-cs-true" || ip == "/set-cs-69")
+			writeFile(fileName, 69);
+		else if (ip == "/set-cs-0" || ip == "/set-cs-false")
+			writeFile(fileName, 0);
 		else if (m == "(cmd)")
 		{
 			if (ip == "/h" || ip == "/help")
