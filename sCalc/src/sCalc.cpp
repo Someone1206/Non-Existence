@@ -55,7 +55,7 @@ int main()
 		}
 		else if (ip == "/abt" || ip == "/about")
 		{
-			prl("Version 1.1.1");
+			prl("Version 2.0");
 			prl("This crap is obviously made by a depressed, lonely, mentally retarded and stupid 15 y/o kid");
 			prl("Umm... about this calculator--->");
 			prl("\tIt dosen't support brackets of any form.");
@@ -77,6 +77,9 @@ int main()
 			{
 				prl(help[hc]);
 				hc++;
+				if (hc > 3)
+					hc--;
+				
 			}
 			else if (ip == "/s" || ip == "/str" || ip == "/start")
 			{
@@ -115,9 +118,7 @@ int main()
 					prl("Arrrgh. Wut?!?!");
 				}
 				else
-				{
 					break;
-				}
 				ec++;
 			}
 		}
@@ -136,8 +137,9 @@ int main()
 			{
 				// i hope I never existed 😢😥😭
 				prl(helpc[hcc]);
-				
 				hcc++;
+				if (hcc > 3)
+					hcc--;
 			}
 			else if (validex(ip))
 			{
@@ -168,9 +170,7 @@ int main()
 					prl("Kisama wa baaaka ga?");
 				}
 				else
-				{
 					break;
-				}
 				ecc++;
 			}
 		}
