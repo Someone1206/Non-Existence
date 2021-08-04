@@ -7,14 +7,12 @@
 #define pr(wtf) std::cout << wtf
 #define prl(wtf) std::cout << wtf << std::endl
 
-
-
 #if _WIN32
 #include <Windows.h>
 #define WAIT(t) Sleep(t)
 #else
 #include <unistd.h>
-#define WAIT(t) usleep(t * 1000)  // deprecated but okay
+#define WAIT(t) usleep(t * 1000)  // deprecated but okay dont need anything else
 #endif // _WIN32
 
 
@@ -48,13 +46,17 @@ double long expr(std::string& exp);
 
 
 
-static const char* help[5] = {
+static const char* help[4] = {
 	"   Type \'/h\'   (without the quotes) and press enter for help,\n"
 	"   Type \'/qq\'  (without the quotes) and press enter to quit this crap,\n"
 	"   Type \'/s\'   (without the quotes) and press enter to start calculating.\n"
-	"   Type \'/abt\'   (without the quotes) and press enter to know about me(creator ofc) and this calculator.\n"
+	"   Type \'/abt\' (without the quotes) and press enter to know about me(creator ofc) and this calculator.\n"
 	"   Type \'/ust\' (without the quotes) and press enter to show how it works(why?).\n"
+	"   Type \'/set -cs -1\' (without the quotes) and press enter to automatically start calc mode on startup.\n"
+	"   Type \'/set -cs -0\' (without the quotes) and press enter to undo the ^|above|^.\n"
 	"   Alternates for /s -> /str, /start;\n"
+	"   Alternates for /set -cs -1 -> /set -cs -69, /set -cs -true;\t\t:)\n"
+	"   Alternates for /set -cs -0 -> /set -cs -false;\n"
 	"   ALternates for /h -> /help.",
 
 	"   WUt!?\n"
@@ -63,7 +65,11 @@ static const char* help[5] = {
 	"   \'/s\'   to start calculating.\n"
 	"   \'/abt\' to know about me(creator ofc) and this calculator.\n"
 	"   \'/ust\' to show how it works(why?).\n"
+	"   \'/set -cs -1\' to automatically start calc mode on startup.\n"
+	"   \'/set -cs -0\' to undo the ^|above|^.\n"
 	"   Alternates for /s -> /str, /start;\n"
+	"   Alternates for /set -cs -1 -> /set -cs -69, /set -cs -true;\n"
+	"   Alternates for /set -cs -0 -> /set -cs -false;\n"
 	"   ALternates for /h -> /help.\n",
 
 	"   You have already asked help many times\n"
@@ -71,27 +77,29 @@ static const char* help[5] = {
 	"   \'/qq\'  to quit this crap,\n"
 	"   \'/s\'   to start calculating.\n"
 	"   \'/abt\' to know about me and this calculator.\n"
-	"   \'/ust\' to show how it works(why?).\n",
-
-	"   \'/h\'   for help,\n"
-	"   \'/qq\'  to quit this crap,\n"
-	"   \'/s\'   to start calculating.\n"
-	"   \'/abt\' to know about me and this calculator.\n"
-	"   \'/ust\' to show how it works(why?).\n",
+	"   \'/ust\' to show how it works(why?).\n"
+	"   \'/set -cs -1\' to automatically start calc mode on startup.\n"
+	"   \'/set -cs -0\' to undo the ^|above|^.\n",
 
 	"   \'/h\'   for help,\n"
 	"   \'/qq\'  to quit this crap,\n"
 	"   \'/s\'   to start calculating.\n"
 	"   \'/abt\' to know about me and this calculator.\n"
 	"   \'/ust\' to show how it works(why?).\n"
+	"   \'/set -cs -1\' to automatically start calc mode on startup.\n"
+	"   \'/set -cs -0\' to undo the ^|above|^.\n"
 };
 
-static const char* helpc[5] = {
+static const char* helpc[4] = {
 	"   Type \'/h\'   (without the quotes) and press enter for help,\n"
 	"   Type \'/qq\'  (without the quotes) and press enter to quit this crap,\n"
 	"   Type \'/q\'   (without the quotes) and press enter to go back to cmd mode(why?).\n"
 	"   Type \'/abt\'   (without the quotes) and press enter to know about me(creator ofc) and this calculator.\n"
 	"   Type \'/ust\' (without the quotes) and press enter to show how it works(why?).\n"
+	"   Type \'/set -cs -1\' (without the quotes) and press enter to automatically start calc mode on startup.\n"
+	"   Type \'/set -cs -0\' (without the quotes) and press enter to undo the ^|above|^.\n"
+	"   Alternates for /set -cs -1 -> /set -cs -69, /set -cs -true;\t\t:)\n"
+	"   Alternates for /set -cs -0 -> /set -cs -false;\n"
 	"   ALternates for /h -> /help.\n",
 
 	"   WUt!?\n"
@@ -100,6 +108,10 @@ static const char* helpc[5] = {
 	"   \'/abt\' to know about me(creator ofc) and this calculator.\n"
 	"   \'/q\'   to go back to cmd mode(why?).\n"
 	"   \'/ust\' to show how it works(why?).\n"
+	"   \'/set -cs -1\' to automatically start calc mode on startup.\n"
+	"   \'/set -cs -0\' to undo the ^|above|^.\n"
+	"   Alternates for /set -cs -1 -> /set -cs -69, /set -cs -true;\n"
+	"   Alternates for /set -cs -0 -> /set -cs -false;\n"
 	"   ALternates for /h -> /help.\n",
 
 	"   You have already asked help many times\n"
@@ -107,18 +119,17 @@ static const char* helpc[5] = {
 	"   \'/qq\'  to quit this crap,\n"
 	"   \'/abt\' to know about me(creator ofc) and this calculator.\n"
 	"   \'/q\'   to go back to cmd mode(why?).\n"
-	"   \'/ust\' to show how it works(why?).\n",
+	"   \'/ust\' to show how it works(why?).\n"
+	"   \'/set -cs -1\' to automatically start calc mode on startup.\n"
+	"   \'/set -cs -0\' to undo the ^|above|^.\n",
 
 	"   \'/h\'   for help,\n"
 	"   \'/qq\'  to quit this crap,\n"
 	"   \'/abt\' to know about me and this calculator.\n"
 	"   \'/q\'   to go back to cmd mode(why?).\n"
-	"   \'/ust\' to show how it works(why?).\n",
-
-	"   \'/h\'   for help,\n"
-	"   \'/qq\'  to quit this crap,\n"
-	"   \'/q\'   to go back to cmd mode.\n"
 	"   \'/ust\' to show how it works(why?).\n"
+	"   \'/set -cs -1\' to automatically start calc mode on startup.\n"
+	"   \'/set -cs -0\' to undo the ^|above|^.\n"
 };
 
 static const char* selft[2] = {
