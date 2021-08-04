@@ -1,16 +1,16 @@
 #include "fileIO.h"
 
-void writeFile(std::string& fName, bool choice)
+void writeFile(str& fName, bool choice)
 {
 	std::ofstream file;
 	file.open(fName, std::ios_base::out);
 	file << choice;
 }
 
-bool readFile(std::string& fName)
+bool readFile(str& fName)
 {
 	bool stC = false;
-	std::string validation = "";
+	str validation = "";
 
 	std::ifstream file;
 	file.open(fName);

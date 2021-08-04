@@ -1,6 +1,6 @@
 #include "annoyer.h"
 
-char now(std::string& exp)
+char now(str& exp)
 {
 	if (index >= len) {
 		return 'E'; // :)
@@ -8,7 +8,7 @@ char now(std::string& exp)
 	return exp.at(index);
 }
 
-char nxt(std::string& exp)
+char nxt(str& exp)
 {
 	if (index >= len) {
 		return 'E'; // ;)
@@ -16,7 +16,7 @@ char nxt(std::string& exp)
 	return exp.at(index++);
 }
 
-double long expr(std::string& exp)
+double long expr(str& exp)
 {
 	expForm(exp);
 	index = 0;
@@ -33,7 +33,7 @@ double long expr(std::string& exp)
 	return res;
 }
 
-double long mulDiv(std::string& exp)
+double long mulDiv(str& exp)
 {
 	double long res = term(exp);
 
@@ -45,7 +45,7 @@ double long mulDiv(std::string& exp)
 	return res;
 }
 
-double long term(std::string& exp)
+double long term(str& exp)
 {
 	if ((now(exp) >= '0' && now(exp) <= '9') || now(exp) == '.')
 		return toNum(exp);
@@ -61,7 +61,7 @@ double long term(std::string& exp)
 	return -0x45; // err :)
 }
 
-double long toNum(std::string& exp)
+double long toNum(str& exp)
 {
 	double long res = nxt(exp) - '0';
 	bool is_dec = false;
@@ -96,7 +96,7 @@ double pow(int8_t num, int8_t count)
 	return res;
 }
 
-bool validex(std::string& exp)
+bool validex(str& exp)
 {
 	bool valid = false, indec = true;
 	int8_t count = 0;
@@ -199,12 +199,12 @@ bool ckd(char& c, bool ck, bool r, bool is_p, bool is_ve)
 	return false;
 }
 
-void expForm(std::string& exp)
+void expForm(str& exp)
 {
 	unsigned short count = 0;
 	bool plus = false, minus = false;
 	char c;
-	std::string r = "";
+	str r = "";
 	for (unsigned int i = 0; i < exp.length(); ++i)
 	{
 		c = exp.at(i);

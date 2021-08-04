@@ -1,10 +1,10 @@
 #include "fileIO.h"
 
-void unspc(std::string& inp)
+void unspc(str& inp)
 {
 	unsigned int i = 0;
 	char c;
-	std::string r = "";
+	str r = "";
 	for (i = 0; i < inp.length(); i++)
 	{
 		c = inp.at(i);
@@ -18,8 +18,8 @@ void unspc(std::string& inp)
 
 int main()
 {
-	std::string ip = "", m = "(cmd)", pm = "==>   ";
-	std::string fileName = "StupidCalculator.settings.wtaf";
+	str ip = "", m = "(cmd)", pm = "==>   ";
+	str fileName = "sCalc-set.baka";
 
 	bool RUN = true, hap = false, hapc = false;
 	// hap -> help annoyed prompt?, hapc -> help annoyed prompt calc

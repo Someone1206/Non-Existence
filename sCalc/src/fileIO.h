@@ -1,6 +1,6 @@
 #pragma once
 #include "annoyer.h"
 
-void writeFile(std::string& fName, bool choice);
+void writeFile(str& fName, bool choice);
 
-bool readFile(std::string& fName);
+bool readFile(str& fName);

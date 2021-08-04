@@ -7,6 +7,8 @@
 #define pr(wtf) std::cout << wtf
 #define prl(wtf) std::cout << wtf << std::endl
 
+using str = std::string;
+
 #if _WIN32
 #include <Windows.h>
 #define WAIT(t) Sleep(t)
@@ -23,25 +25,25 @@ double pow(int8_t num, int8_t count);
 
 bool ckd(char& c, bool ck = false, bool r = false, bool is_p = false, bool is_ve = false);
 
-bool validex(std::string& exp);
+bool validex(str& exp);
 
-void expForm(std::string& exp);
+void expForm(str& exp);
 
 
 
 // couldn't do without functions...
 
-char now(std::string& exp);
+char now(str& exp);
 
-char nxt(std::string& exp);
+char nxt(str& exp);
 
-double long toNum(std::string& exp);
+double long toNum(str& exp);
 
-double long term(std::string& exp);
+double long term(str& exp);
 
-double long mulDiv(std::string& exp);
+double long mulDiv(str& exp);
 
-double long expr(std::string& exp);
+double long expr(str& exp);
 
 
 
