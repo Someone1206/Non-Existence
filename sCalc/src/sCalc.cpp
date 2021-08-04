@@ -19,15 +19,7 @@ void unspc(std::string& inp)
 int main()
 {
 	std::string ip = "", m = "(cmd)", pm = "==>   ";
-	bool startCalc = false;
 	std::string fileName = "StupidCalculator.settings.wtaf";
-	startCalc = readFile(fileName);
-
-	if (startCalc)
-	{
-		m = "(calc)";
-		pm = "==>  ";
-	}
 
 	bool RUN = true, hap = false, hapc = false;
 	// hap -> help annoyed prompt?, hapc -> help annoyed prompt calc
@@ -37,7 +29,14 @@ int main()
 	prl("This is a useless cli calculator");
 	prl("Depressing news, its neither space nor case sensitive           \'/h\' for help, \'/qq\' one of the thousand ways to quit");
 	prl("If you face any health issues and think its because of this then delete this crap from your drive.");
-
+	
+	if (readFile(fileName))
+	{
+		pr("\n");
+		m = "(calc)";
+		pm = "==>  ";
+	}
+	
 	while (RUN)
 	{
 		pr(m);

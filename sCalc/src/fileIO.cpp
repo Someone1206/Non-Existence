@@ -28,7 +28,7 @@ bool readFile(std::string& fName)
 	if (validation.length() == 1 && validation.at(0) >= '0' && validation.at(0) <= '9')
 		return (validation.at(0) - '0' == 0 ? false : true);
 	else {
-		std::cout << "Error reading setting file." << std::endl;
+		prl("\nError reading setting file\n");
 		return false;
 	}
 	file.close();
