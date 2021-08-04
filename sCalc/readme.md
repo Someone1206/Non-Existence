@@ -13,7 +13,7 @@ You may fully and completely reformat your drive if you don't know how to reset 
 
 #### ***No responsibility will be taken by anyone involved in developing this product if you are harmed, cuz you were and are WARNED.***  
 
-***The latest releases are provided cuz it's a pain to compile the files once again. The outputs were created in Win10 x64 and linux x64 but may also work for x86***  
+***The latest releases are provided cuz it's a pain to compile the files once again. They were created in Win x32 and linux x64. So you can get the src and compile it for ur pc if on linux x32 or mac***  
 
 a mac is far out of my reach. Can't even set a virtual machine...
 
