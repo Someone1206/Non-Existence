@@ -21,9 +21,7 @@ int main()
 	str ip = "", m = "(cmd)", pm = "==>   ";
 	str fileName = "sCalc-set.baka";
 
-	bool RUN = true, hap = false, hapc = false;
-	// hap -> help annoyed prompt?, hapc -> help annoyed prompt calc
-	// my existence makes no sense
+	bool RUN = true;
 	char ec = 0, ecc = 0, hc = 0, hcc = 0;
 
 	prl("This is a useless cli calculator");
