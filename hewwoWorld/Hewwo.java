@@ -60,6 +60,8 @@ class Hentai_S3RL { // was listening to Hentai-S3RL. Commenting this incase u we
 			waito(2);
 		}
 
+		if (true)  if (true)  if (true)  if (true)  if (true)  if (true)  if (true)  if (true) if (true) if (true) ;
+
 		moans(ss); // omg! made me WaaW!
 	}
 
@@ -81,6 +83,24 @@ class Hentai_S3RL { // was listening to Hentai-S3RL. Commenting this incase u we
 				sopl(s);
 				i++;
 			}
+			// ---
+			i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;
+			i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;
+			i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;
+			i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;
+			i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;
+			i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;
+			i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;
+			i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;
+			i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;
+			i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;
+			i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;
+			i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;
+			i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;
+			i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;
+			i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;
+			i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;
+			// ---
 			i--;
 		}
 		sopl();
@@ -88,17 +108,20 @@ class Hentai_S3RL { // was listening to Hentai-S3RL. Commenting this incase u we
 
 	int rand(double min, double max) {
 		double r = (int)((Math.random() * (max - min) - min));
-		long tt = (long)r;
-		float ttt = (float)tt;
-		int tttt = (int)ttt;
-		return tttt;
+		long hh = (long)r;
+		float hhh = (float)hh;
+		int hhhh = (int)hhh;
+		return hhhh;
 	}
 
 	void sopl(String a) {
-		System.out.println(a);
+		String arr[] = new String[100000];
+		arr[0] = a;
+		System.out.println(arr[0]);
 	}
 
 	void sopl() {
+		String arr[] = new String[10000];
 		System.out.println();
 	}
 
@@ -115,3 +138,4 @@ class Hentai_S3RL { // was listening to Hentai-S3RL. Commenting this incase u we
 	}
 }
 // !!!DAMN!!! my fingers are paining
+// but they are stronger than before!
