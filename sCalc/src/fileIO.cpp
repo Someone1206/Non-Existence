@@ -1,13 +1,14 @@
 #include "fileIO.h"
 
-void writeFile(str& fName, bool choice)
+void writeFile(str& fName, bool startChoice, bool qChoice)
 {
 	std::ofstream file;
 	file.open(fName, std::ios_base::out);
-	file << choice;
+	file << startChoice << std::endl;
+	file << qChoice << std::endl;
 }
 
-bool readFile(str& fName)
+bool readFile(str& fName, bool *normCl)
 {
 	bool stC = false;
 	str validation = "";
@@ -18,19 +19,40 @@ bool readFile(str& fName)
 	{
 		std::ofstream f;
 		f.open(fName, std::ios_base::out);
-		file >> stC;
 		f.close();
 	}
-	
-	file >> validation;
-	if (validation == "")
-		return false;
-	if (validation.length() == 1 && validation.at(0) >= '0' && validation.at(0) <= '9')
-		return (validation.at(0) - '0' == 0 ? false : true);
-	else {
-		prl("\nError reading setting file\n");
-		return false;
+	char i = 0;
+	while (getline(file, validation))
+	{
+		if(validation == "")
+			continue;
+		else if (isspace(validation))
+			continue;
+		else if (validation.length() == 1 && validation.at(0) >= '0' && validation.at(0) <= '9')
+		{
+			if (i == 0)
+				stC = (validation.at(0) - '0');
+			else if (i == 1)
+				*normCl = (validation.at(0) - '0');
+			i++;
+		}
+		else
+		{
+			prl("\nError reading setting file\n");
+			return false;
+		}
 	}
 	file.close();
+	return stC;
+}
+
+bool isspace(str wtf)
+{
+	const char* c = wtf.c_str();
+	for (int i = 0; i < wtf.length(); i++)
+	{
+		if (isspace(*c++))
+			return true;
+	}
 	return false;
 }
