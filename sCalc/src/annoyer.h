@@ -56,9 +56,13 @@ static const char* help[4] = {
 	"   Type \'/ust\' (without the quotes) and press enter to show how it works(why?).\n"
 	"   Type \'/set -cs -1\' (without the quotes) and press enter to automatically start calc mode on startup.\n"
 	"   Type \'/set -cs -0\' (without the quotes) and press enter to undo the ^|above|^.\n"
-	"   Alternates for /s -> /str, /start;\n"
-	"   Alternates for /set -cs -1 -> /set -cs -69, /set -cs -true;\t\t:)\n"
-	"   Alternates for /set -cs -0 -> /set -cs -false;\n"
+	"   Type \'/set -qq -1\' (without the quotes) and press enter to quickly quit this crap.\n"
+	"   Type \'/set -qq -0\' (without the quotes) and press enter to undo the ^|above|^.\n"
+	"   Alternates for /s -> /str, /start\n"
+	"   Alternates for /set -cs -1 -> /set -cs -69, /set -cs -true\t\t:)\n"
+	"   Alternates for /set -qq -1 -> /set -qq -69, /set -qq -true\t\t:)\n"
+	"   Alternates for /set -cs -0 -> /set -cs -false\n"
+	"   Alternates for /set -qq -0 -> /set -qq -false\n"
 	"   ALternates for /h -> /help.",
 
 	"   WUt!?\n"
@@ -69,9 +73,13 @@ static const char* help[4] = {
 	"   \'/ust\' to show how it works(why?).\n"
 	"   \'/set -cs -1\' to automatically start calc mode on startup.\n"
 	"   \'/set -cs -0\' to undo the ^|above|^.\n"
-	"   Alternates for /s -> /str, /start;\n"
-	"   Alternates for /set -cs -1 -> /set -cs -69, /set -cs -true;\n"
-	"   Alternates for /set -cs -0 -> /set -cs -false;\n"
+	"   \'/set -qq -1\' to quickly quit this crap.\n"
+	"   \'/set -qq -0\' to undo the ^|above|^.\n"
+	"   Alternates for /s -> /str, /start\n"
+	"   Alternates for /set -cs -1 -> /set -cs -69, /set -cs -true\n"
+	"   Alternates for /set -qq -1 -> /set -qq -69, /set -qq -true\n"
+	"   Alternates for /set -cs -0 -> /set -cs -false\n"
+	"   Alternates for /set -qq -0 -> /set -qq -false\n"
 	"   ALternates for /h -> /help.\n",
 
 	"   You have already asked help many times\n"
@@ -81,7 +89,9 @@ static const char* help[4] = {
 	"   \'/abt\' to know about me and this calculator.\n"
 	"   \'/ust\' to show how it works(why?).\n"
 	"   \'/set -cs -1\' to automatically start calc mode on startup.\n"
-	"   \'/set -cs -0\' to undo the ^|above|^.\n",
+	"   \'/set -cs -0\' to undo the ^|above|^.\n"
+	"   \'/set -qq -1\' to quickly quit this crap.\n"
+	"   \'/set -qq -0\' to undo the ^|above|^.\n",
 
 	"   \'/h\'   for help,\n"
 	"   \'/qq\'  to quit this crap,\n"
@@ -90,6 +100,8 @@ static const char* help[4] = {
 	"   \'/ust\' to show how it works(why?).\n"
 	"   \'/set -cs -1\' to automatically start calc mode on startup.\n"
 	"   \'/set -cs -0\' to undo the ^|above|^.\n"
+	"   \'/set -qq -1\' to quickly quit this crap.\n"
+	"   \'/set -qq -0\' to undo the ^|above|^.\n"
 };
 
 static const char* helpc[4] = {
@@ -100,8 +112,12 @@ static const char* helpc[4] = {
 	"   Type \'/ust\' (without the quotes) and press enter to show how it works(why?).\n"
 	"   Type \'/set -cs -1\' (without the quotes) and press enter to automatically start calc mode on startup.\n"
 	"   Type \'/set -cs -0\' (without the quotes) and press enter to undo the ^|above|^.\n"
-	"   Alternates for /set -cs -1 -> /set -cs -69, /set -cs -true;\t\t:)\n"
-	"   Alternates for /set -cs -0 -> /set -cs -false;\n"
+	"   Type \'/set -qq -1\' (without the quotes) and press enter to quickly quit this crap.\n"
+	"   Type \'/set -qq -0\' (without the quotes) and press enter to undo the ^|above|^.\n"
+	"   Alternates for /set -cs -1 -> /set -cs -69, /set -cs -true\t\t:)\n"
+	"   Alternates for /set -qq -1 -> /set -qq -69, /set -qq -true\t\t:)\n"
+	"   Alternates for /set -cs -0 -> /set -cs -false\n"
+	"   Alternates for /set -qq -0 -> /set -qq -false\n"
 	"   ALternates for /h -> /help.\n",
 
 	"   WUt!?\n"
@@ -112,8 +128,12 @@ static const char* helpc[4] = {
 	"   \'/ust\' to show how it works(why?).\n"
 	"   \'/set -cs -1\' to automatically start calc mode on startup.\n"
 	"   \'/set -cs -0\' to undo the ^|above|^.\n"
-	"   Alternates for /set -cs -1 -> /set -cs -69, /set -cs -true;\n"
-	"   Alternates for /set -cs -0 -> /set -cs -false;\n"
+	"   \'/set -qq -1\' to quickly quit this crap.\n"
+	"   \'/set -qq -0\' to undo the ^|above|^.\n"
+	"   Alternates for /set -cs -1 -> /set -cs -69, /set -cs -true\n"
+	"   Alternates for /set -qq -1 -> /set -qq -69, /set -qq -true\n"
+	"   Alternates for /set -cs -0 -> /set -cs -false\n"
+	"   Alternates for /set -qq -0 -> /set -qq -false\n"
 	"   ALternates for /h -> /help.\n",
 
 	"   You have already asked help many times\n"
@@ -123,7 +143,9 @@ static const char* helpc[4] = {
 	"   \'/q\'   to go back to cmd mode(why?).\n"
 	"   \'/ust\' to show how it works(why?).\n"
 	"   \'/set -cs -1\' to automatically start calc mode on startup.\n"
-	"   \'/set -cs -0\' to undo the ^|above|^.\n",
+	"   \'/set -cs -0\' to undo the ^|above|^.\n"
+	"   \'/set -qq -1\' to quickly quit this crap.\n"
+	"   \'/set -qq -0\' to undo the ^|above|^.\n",
 
 	"   \'/h\'   for help,\n"
 	"   \'/qq\'  to quit this crap,\n"
@@ -132,6 +154,8 @@ static const char* helpc[4] = {
 	"   \'/ust\' to show how it works(why?).\n"
 	"   \'/set -cs -1\' to automatically start calc mode on startup.\n"
 	"   \'/set -cs -0\' to undo the ^|above|^.\n"
+	"   \'/set -qq -1\' to quickly quit this crap.\n"
+	"   \'/set -qq -0\' to undo the ^|above|^.\n"
 };
 
 static const char* selft[2] = {
