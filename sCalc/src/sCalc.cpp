@@ -21,14 +21,14 @@ int main()
 	str ip = "", m = "(cmd)", pm = "==>   ";
 	str fileName = "sCalc-set.baka";
 
-	bool RUN = true;
+	bool RUN = true, qEnd = 1, startCalc = 0;
 	char ec = 0, ecc = 0, hc = 0, hcc = 0;
 
 	prl("This is a useless cli calculator");
 	prl("Depressing news, its neither space nor case sensitive           \'/h\' for help, \'/qq\' one of the thousand ways to quit");
 	prl("If you face any health issues and think its because of this then delete this crap from your drive.");
 	
-	if (readFile(fileName))
+	if (startCalc = readFile(fileName, &qEnd))
 	{
 		pr("\n");
 		m = "(calc)";
@@ -65,9 +65,13 @@ int main()
 			break;
 		}
 		else if (ip == "/set-cs-1" || ip == "/set-cs-true" || ip == "/set-cs-69")
-			writeFile(fileName, 69);
+			startCalc = 69;
 		else if (ip == "/set-cs-0" || ip == "/set-cs-false")
-			writeFile(fileName, 0);
+			startCalc = 0;
+		else if (ip == "/set-qq-1" || ip == "/set-qq-true" || ip == "/set-qq-69") // :)
+			qEnd = 0;
+		else if (ip == "/set-qq-0" || ip == "/set-qq-false")
+			qEnd = 69;
 		else if (m == "(cmd)")
 		{
 			if (ip == "/h" || ip == "/help")
@@ -174,7 +178,9 @@ int main()
 	}
 
 	prl("Matane!");
-	WAIT(450);
+	WAIT(450 * qEnd);
 	prl("\t\t\t\t\tor sayonara! I guess?");
-	WAIT(350);
+	WAIT(350 * qEnd);
+
+	writeFile(fileName, startCalc, qEnd);
 }
