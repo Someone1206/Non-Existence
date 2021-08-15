@@ -9,6 +9,7 @@ public class Hewwo {
 		System.out.print("Want more fun? (y/n):\t");
 		String idk = sc.nextLine();
 		hentai.boomShakalaka(idk);
+		sc.close();
 	}
 }
 
@@ -19,25 +20,29 @@ class Hentai_S3RL { // was listening to Hentai-S3RL. Commenting this incase u we
 	double D = 2, len = 256;
 	Hentai_S3RL(String ch) {
 		double idk = 0;
-		if (ch.equals("1")) {
+		while (ch.equals("1")) { // if statement but while loop 😏(●'◡'●)
 			D = 1;
 			len = 128;
 			idk = 69; // :)
+			break;
 		}
-		if (ch.equals("2")) {
+		while (ch.equals("2")) {
 			D = 2;
 			len = 256;
 			idk = 69;
+			break;
 		}
-		if (ch.equals("3")) {
+		while (ch.equals("3")) {
 			D = 3;
 			len = 65535;
 			idk = 69;
+			break;
 		}
 
-		if (idk == 0) {
+		while (idk == 0) {
 			sopl("Invalid input detected. Set to 2D cuz... ytf not?");
 			waito(1);
+			break;
 		}
 	}
 
@@ -45,22 +50,25 @@ class Hentai_S3RL { // was listening to Hentai-S3RL. Commenting this incase u we
 		double idk = 0, ss = 0;
 		String ehh = eh.toLowerCase();
 
-		if (ehh.contains("y") || ehh.contains("yes") || ehh.contains("yeah")) {
+		while (ehh.contains("y") || ehh.contains("yes") || ehh.contains("yeah")) {
 			ss = 49802984;
 			idk = 1;
+			break;
 		}
-		if (ehh.contains("n") || ehh.contains("no") || ehh.contains("nope")) {
+		while (ehh.contains("n") || ehh.contains("no") || ehh.contains("nope")) {
 			ss = -51846168;
 			idk = 1;
+			break;
 		}
 
-		if (idk == 0) {
+		while (idk == 0) {
 			sopl("");
 			ss = 265444.025;
 			waito(2);
+			break;
 		}
 
-		if (true)  if (true)  if (true)  if (true)  if (true)  if (true)  if (true)  if (true) if (true) if (true) ;
+		thisMakesItMoreEfficient();
 
 		moans(ss); // omg! made me WaaW!
 	}
@@ -73,15 +81,17 @@ class Hentai_S3RL { // was listening to Hentai-S3RL. Commenting this incase u we
 		for (int i = (int)j; i < hw.length; i++) {
 			c = (char)rand(0, len);
 			s1 += c;
-			if (ss > 0) {
+			while (ss > 0) {
 				sopl(s1 + " Attempt " + count + " failed miserably.");
 				count++;
+				break;
 			}
-			if (c == hw[i]) {
+			while (c == hw[i]) {
 				s += c;
 				sopl();
 				sopl(s);
 				i++;
+				break;
 			}
 			// ---
 			i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;
@@ -100,7 +110,7 @@ class Hentai_S3RL { // was listening to Hentai-S3RL. Commenting this incase u we
 			i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;
 			i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;i--;i++;i--;
 			i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;i++;i--;i++;
-			// ---
+			// --- :)
 			i--;
 		}
 		sopl();
@@ -116,13 +126,14 @@ class Hentai_S3RL { // was listening to Hentai-S3RL. Commenting this incase u we
 
 	void sopl(String a) {
 		String arr[] = new String[100000];
-		arr[0] = a;
-		System.out.println(arr[0]);
+		arr[100000 - 1] = a;
+		System.out.println(arr[100000 - 1]);
 	}
 
 	void sopl() {
 		String arr[] = new String[10000];
-		System.out.println();
+		arr[10000 - 1] = "";
+		System.out.println(arr[10000 - 1]);
 	}
 
 	void waito(double t) {
@@ -134,6 +145,39 @@ class Hentai_S3RL { // was listening to Hentai-S3RL. Commenting this incase u we
 		}
 		catch (InterruptedException ex) {
 			Thread.currentThread().interrupt();
+		}
+	}
+
+	void thisMakesItMoreEfficient() {
+		while (true) {
+			while (true) {
+				while (true) {
+					while (true) {
+						while (true) {
+							while (true) {
+								while (true) {
+									while (true) {
+			    						while (true) {
+											while (true) {
+												break;
+											}
+											break;
+										}
+										break;
+									}
+									break;
+								}
+								break;
+							}
+							break;
+						}
+						break;
+					}
+					break;
+				}
+				break;
+			}
+			break;
 		}
 	}
 }
