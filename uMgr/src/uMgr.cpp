@@ -7,10 +7,9 @@ int main() {
         if (!fs::exists((paf))) {
             ofstream f;
             f.open(paf);
-            f << (char)0;
             f.close();
         }
-        // idk if this works but does it improve the memory management (but destroying[or whatever it's called] the string var)
+        // idk if this works but does it improve the memory management (by destroying[or whatever it's called] the string var)
         {
             str pa = folderN + fsep + "LastLog.baka";
             if (!fs::exists(pa)) {
@@ -46,6 +45,8 @@ int main() {
     }
     ifstream file;
     file.open((folderN + fsep + "LastLog.baka"));
-    readFile(file, Others, 0, (folderN + fsep + "LastLog.baka"));
+    readFile(file, Movies, 2); // Anime, Manga, Movies and Others work fabulously! Okay, I didn't take any errors into account while reading the file
+    // looking at the formatting of the file, it seems if you play with the files nad mess up, you screwed yourself. 
+    // cuz there's no way to detect errors according to the syntax but will probably come soon, I guess (that's a big guess).
     return 0;
 }
