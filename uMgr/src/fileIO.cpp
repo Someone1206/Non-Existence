@@ -79,9 +79,7 @@ void readFile(ifstream& file, Options options, int history, str paf) {
     }
 
     str line = "";
-    int counter = 0;
-
-    // TODO: 
+    int counter = 0; 
 
     history = (bool)history * history + ((!(bool)history) * -1) + (((bool)history) * 1); // problem here
     // if history is 0, print all -> -1, else print the number of logs from first and add 1 to it
@@ -116,5 +114,65 @@ void readFile(ifstream& file, Options options, int history, str paf) {
             counter++;
         }
         break;
+
+    }
+
+    while (getline(file, line) && ((bool)history)) {
+        if (line.find((char)1) != std::string::npos)
+        {
+            counter = 0;
+            history--;
+            continue;
+        }
+        switch (counter) {
+        case 0:
+            prl("Date:" << '\n' << line << '\n');
+            break;
+        case 1:
+            prl("Time:" << '\n' << line);
+            break;
+        default:
+            switch (options) {
+            case Others:
+                if (counter == 2)
+                    prl("Details and Remarks:");
+                prl(line);
+                break;
+            case Anime:
+                if (counter == 2)
+                    prl("Season:\t" << line);
+                else if (counter == 3)
+                    prl("Episode:\t" << line);
+                else {
+                    if (counter == 4)
+                        prl("Details and Remarks:");
+                    prl(line);
+                }
+                break;
+
+            case Manga:
+                if (counter == 2)
+                    prl("Last Chapter read:\t" << line);
+                else if (counter == 3)
+                    prl("Page read last:\t" << line);
+                else {
+                    if (counter == 4)
+                        prl("Details and Remarks:");
+                    prl(line);
+                }
+                break;
+
+            case Movies:
+                if (counter == 2)
+                    prl("Part last seen:\t" << line);
+                else {
+                    if (counter == 3)
+                        prl("Details and Remarks:");
+                    prl(line);
+                }
+
+            }
+        }
+        counter++;
     }
 }
