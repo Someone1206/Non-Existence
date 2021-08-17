@@ -3,6 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+## Baka files are not needed, I guess?
+*.baka
+# Baka files are some of the data storing files of the crap I make
+
 # User-specific files
 *.rsuser
 *.suo
