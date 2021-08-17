@@ -61,9 +61,11 @@ bool isspace(str& string1) {
  *
  *
  * <!-- LastLogs.baka (LastLogs)-->
+ * (char)1
  * <genre>
  * <name>
  * <details>
+ * (char)1
  * (char)1
  * ...
  * ...
@@ -72,7 +74,7 @@ bool isspace(str& string1) {
  *
  *
  * <!-- GenIndexer.baka (G_IndexerAndData)-->
- * (char)1
+ * 
  * <!!-- Names to display for the Genre --!>
  * <-- some OS may not support Unicode in its filesystem (which OS is so damn outdated?) 
  * or may show errors or stupid behaviours for some characters (I'm not trying to say that
@@ -80,13 +82,13 @@ bool isspace(str& string1) {
  * its good -->
  *
  * <!-- EntryIndexerEng.baka -->
- * (char)1
+ * 
  * <!!-- Names to display for the Entry --!>
  * 
  * ******************************************************************************
  */
 
-void readFile(ifstream& file, Options options, int history, str paf) {
+void readFile(ifstream& file, Options options, int history, str paf, bool isLLog) {
 
     if (!file.is_open()) {
         file.open(paf);
@@ -105,39 +107,12 @@ void readFile(ifstream& file, Options options, int history, str paf) {
     prl("Name:");
     prl(line << "\n\n\n");
 
-    switch (options) {
-    case Others:
-        
-        while (getline(file, line) && ((bool)history)) {
-            
-            if (line.find((char)1) != std::string::npos) {
-                counter = 0;
-                history--;
-                continue;
-            }
-            
-            switch (counter)
-            {
-            case 0:
-                prl("Date:" << "\t\t" << line << '\n');
-                break;
-            case 1:
-                prl("Time:" << '\t' << line);
-                break;
-            case 2:
-                prl("Details:");
-            default:
-                prl(line);
-            }
-            counter++;
-        }
-        break;
-
-    }
 
     while (getline(file, line) && ((bool)history)) {
         if (line.find((char)1) != std::string::npos)
         {
+            if (isLLog)
+                return;
             counter = 0;
             history--;
             continue;
@@ -188,7 +163,6 @@ void readFile(ifstream& file, Options options, int history, str paf) {
                         prl("Details and Remarks:");
                     prl(line);
                 }
-
             }
         }
         counter++;
@@ -196,23 +170,62 @@ void readFile(ifstream& file, Options options, int history, str paf) {
 }
 
 void readTrackerFile(ifstream& file, TrackerFileOptions tfo, int history) {
-	if (!file.is_open()) {
-		prl("Can't open file");
-		return;
-	}
+    if (!file.is_open()) {
+        prl("Can't open file");
+        return;
+    }
 
-	str line = "";
-	int i = 0;
-	
-	switch (tfo) {
-	case G_IndexerAndData:
-	case E_IndexerAndData:
-		while (getline(file, line) || ((bool)++i))
-			prl(i << '\t' << line);
-		break;
-	case LastLogs:
-		break;
-	default:
-		prl("Wrong Choice! Damn, cmon edit the source code");
-	}
+    str line = "";
+    int i = 0;
+    bool isGenN = 0;
+
+    
+    switch (tfo) {
+    case G_IndexerAndData:
+    case E_IndexerAndData:
+        while (getline(file, line) || ((bool)++i))
+            prl(i << '\t' << line);
+        break;
+    case LastLogs:
+
+        
+        while (getline(file, line)) {
+            if (line.find((char)1) != str::npos) {
+                isGenN = 1;
+                continue;
+            }
+            if (isGenN) {
+                if (line.find("Anime") == 0)
+                    readFile(file, Anime, 1, "", 1);
+                else if (line.find("Manga") == 0)
+                    readFile(file, Manga, 1, "", 1);
+                else if (line.find("Movies") == 0)
+                    readFile(file, Movies, 1, "", 1);
+                else
+                    readFile(file, Others, 1, "", 1);
+            }
+            isGenN *= 0;
+        }
+        break;
+    default:
+        prl("Wrong Choice! Damn, cmon edit the source code");
+    }
+}
+
+
+void readTrackerFile(ifstream& file, bool& choice) {
+    str validation;
+    char c;
+    
+    while (getline(file, validation)) {
+        c = validation.at(0);
+        if (validation == "")
+            choice = 1;
+        else if ((c >= '0' || c <= '9') && validation.length() == 1)
+            choice = (c - '0');
+        else {
+            prl("Error reading settings file");
+            break;
+        }
+    }
 }
