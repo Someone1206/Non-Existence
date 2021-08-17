@@ -14,57 +14,75 @@ bool isspace(str& string1) {
  * How the file will be read (this is bound to change):
  * <!-- Others:  distinguished by file names-->
  * <name>
- * (char)0
+ * (char)1
  * <date>
  * <time>
  * <details> ...optional
- * (char)0
+ * (char)1
  * <date>
  * <time>
  * <details> ...optional
  *
  * <!-- Anime:  distinguished by file names-->
  * <name>
- * (char)0
+ * (char)1
  * <date>
  * <time>
  * <season>  ...optional
  * <episode> ...optional
  * <details> ...optional
- * (char)0
+ * (char)1
  *
  * <!-- Manga:  distinguished by file names-->
  * <name>
- * (char)0
+ * (char)1
  * <date>
  * <time>
  * <chapter> ...optional
  * <page>    ...optional
  * <details> ...optional
- * (char)0
+ * (char)1
  *
  * <!-- Movies:  distinguished by file names-->
  * <name>
- * (char)0
+ * (char)1
  * <date>
  * <time>
  * <part>    ...optional
  * <details> ...optional
- * (char)0
+ * (char)1
  *
- * <!-- Settings.baka -->
+ *
+ * <!-- Tracker File Formats -->
+ *
+ *
+ * <!-- Settings.baka (G_Set)-->
  * <choice>
  *
  *
- * <!-- LastLogs.baka -->
+ * <!-- LastLogs.baka (LastLogs)-->
  * <genre>
  * <name>
  * <details>
- * (char)0
+ * (char)1
  * ...
  * ...
  * ...
  * ...shows last 10 logs
+ *
+ *
+ * <!-- GenIndexer.baka (G_IndexerAndData)-->
+ * (char)1
+ * <!!-- Names to display for the Genre --!>
+ * <-- some OS may not support Unicode in its filesystem (which OS is so damn outdated?) 
+ * or may show errors or stupid behaviours for some characters (I'm not trying to say that
+ * English is great but I've seen some linux distros do that, Windows doesn't show any problems
+ * its good -->
+ *
+ * <!-- EntryIndexerEng.baka -->
+ * (char)1
+ * <!!-- Names to display for the Entry --!>
+ * 
  * ******************************************************************************
  */
 
@@ -85,7 +103,7 @@ void readFile(ifstream& file, Options options, int history, str paf) {
     // if history is 0, print all -> -1, else print the number of logs from first and add 1 to it
     getline(file, line);
     prl("Name:");
-    prl(line);
+    prl(line << "\n\n\n");
 
     switch (options) {
     case Others:
@@ -101,10 +119,10 @@ void readFile(ifstream& file, Options options, int history, str paf) {
             switch (counter)
             {
             case 0:
-                prl("Date:" << '\n' << line << '\n');
+                prl("Date:" << "\t\t" << line << '\n');
                 break;
             case 1:
-                prl("Time:" << '\n' << line);
+                prl("Time:" << '\t' << line);
                 break;
             case 2:
                 prl("Details:");
@@ -126,10 +144,10 @@ void readFile(ifstream& file, Options options, int history, str paf) {
         }
         switch (counter) {
         case 0:
-            prl("Date:" << '\n' << line << '\n');
+            prl("Date:" << "\t\t" << line << '\n');
             break;
         case 1:
-            prl("Time:" << '\n' << line);
+            prl("Time:" << "\t\t" << line);
             break;
         default:
             switch (options) {
@@ -140,7 +158,7 @@ void readFile(ifstream& file, Options options, int history, str paf) {
                 break;
             case Anime:
                 if (counter == 2)
-                    prl("Season:\t" << line);
+                    prl("Season:\t\t" << line);
                 else if (counter == 3)
                     prl("Episode:\t" << line);
                 else {
@@ -152,9 +170,9 @@ void readFile(ifstream& file, Options options, int history, str paf) {
 
             case Manga:
                 if (counter == 2)
-                    prl("Last Chapter read:\t" << line);
+                    prl("Last Chapter read:\t\t" << line);
                 else if (counter == 3)
-                    prl("Page read last:\t" << line);
+                    prl("Page read last:\t\t" << line);
                 else {
                     if (counter == 4)
                         prl("Details and Remarks:");
@@ -175,4 +193,26 @@ void readFile(ifstream& file, Options options, int history, str paf) {
         }
         counter++;
     }
+}
+
+void readTrackerFile(ifstream& file, TrackerFileOptions tfo, int history) {
+	if (!file.is_open()) {
+		prl("Can't open file");
+		return;
+	}
+
+	str line = "";
+	int i = 0;
+	
+	switch (tfo) {
+	case G_IndexerAndData:
+	case E_IndexerAndData:
+		while (getline(file, line) || ((bool)++i))
+			prl(i << '\t' << line);
+		break;
+	case LastLogs:
+		break;
+	default:
+		prl("Wrong Choice! Damn, cmon edit the source code");
+	}
 }
