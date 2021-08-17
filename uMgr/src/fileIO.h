@@ -36,7 +36,7 @@ enum TrackerFileOptions
 
 bool isspace(str& string1);
 
-void readFile(ifstream& file, Options options, int history = 0, str paf = "");
+void readFile(ifstream& file, Options options, int history = 0, str paf = "", bool isLLog = 0);
 
 void readTrackerFile(ifstream& file, TrackerFileOptions tfo, int history = 0);
 // history shows no. of history for LastLogs.baka, if > 10 then it shutsdown silently
