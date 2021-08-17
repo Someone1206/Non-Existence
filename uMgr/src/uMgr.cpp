@@ -44,8 +44,8 @@ int main() {
         }
     }
     ifstream file;
-    file.open((folderN + fsep + "LastLog.baka"));
-    readFile(file, Movies, 2); // Anime, Manga, Movies and Others work fabulously! Okay, I didn't take any errors into account while reading the file
+    file.open((folderN + fsep + "Anime" + fsep + "Date A Live.log"));
+    readFile(file, Anime, 2); // Anime, Manga, Movies and Others work fabulously! Okay, I didn't take any errors into account while reading the file
     // looking at the formatting of the file, it seems if you play with the files nad mess up, you screwed yourself. 
     // cuz there's no way to detect errors according to the syntax but will probably come soon, I guess (that's a big guess).
     return 0;
