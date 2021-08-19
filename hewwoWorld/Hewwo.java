@@ -14,9 +14,36 @@ public class Hewwo {
 }
 
 class Hentai_S3RL { // was listening to Hentai-S3RL. Commenting this incase u were curious abt the names...
-	private char H = 'H', e = 'e', w1 = 'w', w2 = 'w', o = 'o', spc = ' ', W = 'W', o2 = 'o', r = 'r', l = 'l', d = 'd';
+	int imb = Integer.MAX_VALUE / 9;
+	private char h = 'H', e = 'e', w1 = 'w', w2 = 'w', o = 'o', spc = ' ', w = 'W', o2 = 'o', r = 'r', l = 'l', d = 'd';
+	
+	private char H[] = new char[imb];
+	private char E[] = new char[imb];
+	private char W1[] = new char[imb];
+	private char W2[] = new char[imb];
+	private char O[] = new char[imb];
+	private char SPC[] = new char[imb];
+	private char W3[] = new char[imb];
+	private char O2[] = new char[imb];
+	private char R[] = new char[imb];
+	private char L[] = new char[imb];
+	private char D[] = new char[imb];
+
+	Arrays.fill(H, h);
+	Arrays.fill(E, e);
+	Arrays.fill(W1, w1);
+	Arrays.fill(W2, w2);
+	Arrays.fill(O, o);
+	Arrays.fill(SPC, spc);
+	Arrays.fill(W3, w);
+	Arrays.fill(O2, o2);
+	Arrays.fill(R, r);
+	Arrays.fill(L, l);
+	Arrays.fill(D, d);
+	// heh 😊
+	
 	private char hw[] = {
-		H, e, w1, w2, o, spc, W, o2, r, l, d
+		H[5], E[3], W1[3], W2[9], O[25], SPC, W3[90], O2[45], R[98], L[34], D[90]
 	};
 	double D = 2, len = 256;
 	Hentai_S3RL(String ch) {
