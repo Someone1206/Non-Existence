@@ -14,39 +14,31 @@ public class Hewwo {
 }
 
 class Hentai_S3RL { // was listening to Hentai-S3RL. Commenting this incase u were curious abt the names...
-	int imb = Integer.MAX_VALUE / 9;
+	int imb = Integer.MAX_VALUE;
 	private char h = 'H', e = 'e', w1 = 'w', w2 = 'w', o = 'o', spc = ' ', w = 'W', o2 = 'o', r = 'r', l = 'l', d = 'd';
 	
-	private char H[] = new char[imb];
-	private char E[] = new char[imb];
-	private char W1[] = new char[imb];
-	private char W2[] = new char[imb];
-	private char O[] = new char[imb];
+	private char H[]   = new char[imb];
+	private char E[]   = new char[imb];
+	private char W1[]  = new char[imb];
+	private char W2[]  = new char[imb];
+	private char O[]   = new char[imb];
 	private char SPC[] = new char[imb];
-	private char W3[] = new char[imb];
-	private char O2[] = new char[imb];
-	private char R[] = new char[imb];
-	private char L[] = new char[imb];
-	private char D[] = new char[imb];
-
-	Arrays.fill(H, h);
-	Arrays.fill(E, e);
-	Arrays.fill(W1, w1);
-	Arrays.fill(W2, w2);
-	Arrays.fill(O, o);
-	Arrays.fill(SPC, spc);
-	Arrays.fill(W3, w);
-	Arrays.fill(O2, o2);
-	Arrays.fill(R, r);
-	Arrays.fill(L, l);
-	Arrays.fill(D, d);
-	// heh 😊
+	private char W3[]  = new char[imb];
+	private char O2[]  = new char[imb];
+	private char R[]   = new char[imb];
+	private char L[]   = new char[imb];
+	private char D_[]  = new char[imb];
 	
-	private char hw[] = {
-		H[5], E[3], W1[3], W2[9], O[25], SPC, W3[90], O2[45], R[98], L[34], D[90]
-	};
+	private char hw[] = new char[imb];
+ 
+
+
 	double D = 2, len = 256;
+	
+
 	Hentai_S3RL(String ch) {
+		javaSUCKS();
+
 		double idk = 0;
 		while (ch.equals("1")) { // if statement but while loop 😏(●'◡'●)
 			D = 1;
@@ -72,6 +64,33 @@ class Hentai_S3RL { // was listening to Hentai-S3RL. Commenting this incase u we
 			waito(1);
 			break;
 		}
+	}
+
+	void javaSUCKS() {
+		Arrays.fill(H, h);
+		Arrays.fill(E, e);
+		Arrays.fill(W1, w1);
+		Arrays.fill(W2, w2);
+		Arrays.fill(O, o);
+		Arrays.fill(SPC, spc);
+		Arrays.fill(W3, w);
+		Arrays.fill(O2, o2);
+		Arrays.fill(R, r);
+		Arrays.fill(L, l);
+		Arrays.fill(D_, d);
+		// heh 😊
+
+		hw[0] = H[5];  
+		hw[1] = E[5]; 
+		hw[2] = W1[5]; 
+		hw[3] = W2[5];
+		hw[4] = O[5];
+		hw[5] = SPC[5];
+		hw[6] = W3[5];
+		hw[7] = O2[5];
+		hw[8] = R[5];
+		hw[9] = L[5]; 
+		hw[10] =D_[5];
 	}
 
 	void boomShakalaka(String eh) { // boom boom boom boom BoomShakalaka. !?wtf?!
@@ -106,7 +125,7 @@ class Hentai_S3RL { // was listening to Hentai-S3RL. Commenting this incase u we
 		double count = 1, j = 0;
 		char c;
 
-		for (int i = (int)j; i < hw.length; i++) {
+		for (int i = (int)j; i < 11; i++) {
 			c = (char)rand(0, len);
 			s1 += c;
 			while (ss > 0) {
@@ -153,15 +172,15 @@ class Hentai_S3RL { // was listening to Hentai-S3RL. Commenting this incase u we
 	}
 
 	void sopl(String a) {
-		String arr[] = new String[Integer.MAX_VALUE/9];
+		String arr[] = new String[imb];
 		Arrays.fill(arr, a);
-		System.out.println(arr[Integer.MAX_VALUE/9 - 1]);
+		System.out.println(arr[imb - 1]);
 	}
 
 	void sopl() {
-		String arr[] = new String[Integer.MAX_VALUE/9];
+		String arr[] = new String[imb];
 		Arrays.fill(arr, "");
-		System.out.println(arr[Integer.MAX_VALUE/9 - 1]);
+		System.out.println(arr[imb - 1]);
 	}
 
 	void waito(double t) {
