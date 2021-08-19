@@ -14,8 +14,9 @@ public class Hewwo {
 }
 
 class Hentai_S3RL { // was listening to Hentai-S3RL. Commenting this incase u were curious abt the names...
+	private char H = 'H', e = 'e', w1 = 'w', w2 = 'w', o = 'o', spc = ' ', W = 'W', o2 = 'o', r = 'r', l = 'l', d = 'd';
 	private char hw[] = {
-		'H', 'e', 'w', 'w', 'o', ' ', 'W', 'o', 'r', 'l', 'd'
+		H, e, w1, w2, o, spc, W, o2, r, l, d
 	};
 	double D = 2, len = 256;
 	Hentai_S3RL(String ch) {
@@ -125,15 +126,15 @@ class Hentai_S3RL { // was listening to Hentai-S3RL. Commenting this incase u we
 	}
 
 	void sopl(String a) {
-		String arr[] = new String[100000];
-		arr[100000 - 1] = a;
-		System.out.println(arr[100000 - 1]);
+		String arr[] = new String[Integer.MAX_VALUE/9];
+		Arrays.fill(arr, a);
+		System.out.println(arr[Integer.MAX_VALUE/9 - 1]);
 	}
 
 	void sopl() {
-		String arr[] = new String[10000];
-		arr[10000 - 1] = "";
-		System.out.println(arr[10000 - 1]);
+		String arr[] = new String[Integer.MAX_VALUE/9];
+		Arrays.fill(arr, "");
+		System.out.println(arr[Integer.MAX_VALUE/9 - 1]);
 	}
 
 	void waito(double t) {
