@@ -1,3 +1,9 @@
+// to run u need jvm installed and added to paf
+// cmd to run --> java -Xmx12288m Hewwo.java
+// yes you need 12gb ram ☺, i guess? you can increase it
+// javac gives in comment... (48) Yes java SUCKS
+// 
+
 import java.util.*;
 
 public class Hewwo {
@@ -31,7 +37,6 @@ class Hentai_S3RL { // was listening to Hentai-S3RL. Commenting this incase u we
 	
 	private char hw[] = new char[imb];
  
-
 
 	double D = 2, len = 256;
 	
@@ -80,17 +85,17 @@ class Hentai_S3RL { // was listening to Hentai-S3RL. Commenting this incase u we
 		Arrays.fill(D_, d);
 		// heh 😊
 
-		hw[0] = H[5];  
-		hw[1] = E[5]; 
-		hw[2] = W1[5]; 
-		hw[3] = W2[5];
-		hw[4] = O[5];
-		hw[5] = SPC[5];
-		hw[6] = W3[5];
-		hw[7] = O2[5];
-		hw[8] = R[5];
-		hw[9] = L[5]; 
-		hw[10] =D_[5];
+		hw[0] = H[rand(0, imb - 1)];  
+		hw[1] = E[rand(0, imb - 1)]; 
+		hw[2] = W1[rand(0, imb - 1)]; 
+		hw[3] = W2[rand(0, imb - 1)];
+		hw[4] = O[rand(0, imb - 1)];
+		hw[5] = SPC[rand(0, imb - 1)];
+		hw[6] = W3[rand(0, imb - 1)];
+		hw[7] = O2[rand(0, imb - 1)];
+		hw[8] = R[rand(0, imb - 1)];
+		hw[9] = L[rand(0, imb - 1)]; 
+		hw[10] =D_[rand(0, imb - 1)];
 	}
 
 	void boomShakalaka(String eh) { // boom boom boom boom BoomShakalaka. !?wtf?!
