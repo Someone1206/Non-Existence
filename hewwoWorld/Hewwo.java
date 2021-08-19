@@ -1,5 +1,5 @@
 // to run u need jvm installed and added to paf
-// cmd to run --> java -Xmx12288m Hewwo.java
+// cmd to run --> java -Xmx12288m Hewwo.java   ... hmmm... Tried again but it needs -Xmx100g yes I mean WTAF!??!
 // yes you need 12gb ram ☺, i guess? you can increase it
 // javac gives in comment... (48) Yes java SUCKS
 // 
@@ -20,7 +20,7 @@ public class Hewwo {
 }
 
 class Hentai_S3RL { // was listening to Hentai-S3RL. Commenting this incase u were curious abt the names...
-	int imb = Integer.MAX_VALUE;
+	int imb = Integer.MAX_VALUE;  // this doesn't work then use this ---> Integer.MAX_VALUE / 9
 	private char h = 'H', e = 'e', w1 = 'w', w2 = 'w', o = 'o', spc = ' ', w = 'W', o2 = 'o', r = 'r', l = 'l', d = 'd';
 	
 	private char H[]   = new char[imb];
