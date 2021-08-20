@@ -7,7 +7,7 @@ int main() {
         if (!fs::exists((paf))) {
             ofstream f;
             f.open(paf);
-            f << 0;
+            f << 1;
             f.close();
         }
         // idk if this works but does it improve the memory management (by destroying[or whatever it's called] the string var)
@@ -35,8 +35,8 @@ int main() {
             }
         }
     }
-    ifstream file;
-    file.open((folderN + fsep + "LastLogs.baka"));
-    readTrackerFile(file, LastLogs, 2);
+    
+    str details = "subarashiiine", date = "58th August, 696969", time = "69:69:69 a.p.m";
+    writeFile(folderN + fsep + "smth.txt", details, date, time, "Anime");
     return 0;
 }
