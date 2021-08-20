@@ -96,7 +96,20 @@ void readFile(ifstream& file, ReadOptions options, int history, bool isLLog) {
     str line = "";
     int counter = 0;
 
-    history = (bool)history * history + ((!(bool)history) * -1) + (((bool)history) * 1); // problem here
+    history = (bool)history * history + ((!(bool)history) * -1) + (((bool)history) * 1); 
+    /*
+     * ☝☝this takes avg. of 1000 μs when numbers are between 0 and 50
+     *
+     *
+     * if (history > 0)
+     *     history++;
+     * else
+     *     history = -1;
+     * ☝☝ this takes avg of 1000 μs when numbers are large (>500 idk y?)
+     * when 0, avg of 2100 μs is needed, therefore, its inefficient.
+     * 
+     * here μ = https://seeklogo.com/images/M/mew-logo-8F891D0488-seeklogo.com.png
+    */
     // if history is 0, print all -> -1, else print the number of logs from first and add 1 to it
     getline(file, line);
     prl("Name:");
