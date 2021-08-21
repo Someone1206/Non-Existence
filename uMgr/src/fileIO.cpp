@@ -243,29 +243,57 @@ void readTrackerFile(ifstream& file, bool& choice) {
 
 
 
-// for others
 
+// !!!!!! for Anime ofc !!!!!!
+void writeFile(str paf, str& season, str& episode, str& details, str& date, str& time, str name) {
+    str line = "", nameR = "";
+
+    splitFile(paf, nameR, line, name);
+
+    ofstream fileOUT(paf);
+
+    fileOUT << nameR << endl;
+    fileOUT << (char)1 << endl;
+    fileOUT << date << endl << time << endl << season << endl << episode << endl;
+    fileOUT << details << endl;
+    fileOUT << line;
+}
+
+// for Manga ofc!!!
+void writeFile(str paf, str& chapter, str& page, str& details, str& date, str& time, bool shit, str name) {
+    str line = "", nameR = "";
+
+    splitFile(paf, nameR, line, name);
+
+    ofstream fileOUT(paf);
+
+    fileOUT << nameR << endl;
+    fileOUT << (char)1 << endl;
+    fileOUT << date << endl << time << endl << chapter << endl << page << endl;
+    fileOUT << details << endl;
+    fileOUT << line;
+}
+
+// write file for Movies!
+void writeFile(str paf, str& part, str& details, str& date, str& time, str name) {
+    str line = "", nameR = "";
+
+    splitFile(paf, nameR, line, name);
+
+    ofstream fileOUT(paf);
+
+    fileOUT << nameR << endl;
+    fileOUT << (char)1 << endl;
+    fileOUT << date << endl << time << endl << part << endl;
+    fileOUT << details << endl;
+    fileOUT << line;
+}
+
+// for others
 void writeFile(str paf, str& details, str& date, str& time, str name) {
     str line = "", nameR = "";
-    
-    if (!fs::exists(paf)) {
-        ofstream file;
-        file.open(paf);
-        file << name << endl;
-        file << (char)1;
-        file.close();
-    }
 
-    ifstream fileIN(paf);
-    //ofstream fileOUT(paf);
-
-    getline(fileIN, nameR);
-    {
-        str temp = "";
-        while (getline(fileIN, temp)) {
-            line = line + temp + '\n';
-        }
-    }
+    splitFile(paf, nameR, line, name);
 
     ofstream fileOUT(paf);
 
@@ -273,12 +301,6 @@ void writeFile(str paf, str& details, str& date, str& time, str name) {
     fileOUT << (char)1 << endl;
     fileOUT << date << endl << time << endl << details << endl;
     fileOUT << line;
-
-    prl(line);
-}
-
-void writeFile(str paf, str& season, str& episode, str& details, str& date, str& time, str name)
-{
 }
 
 // only for settings file
@@ -294,4 +316,23 @@ void writeFile(str paf, bool choice) {
     file.open(paf);
     file << choice;
     file.close();
+}
+
+void splitFile(str& paf, str& nameR, str& leftOver, str& name) {
+    if (!fs::exists(paf)) {
+        ofstream file;
+        file.open(paf);
+        file << name << endl;
+        file << (char)1;
+        file.close();
+    }
+
+    ifstream fileIN;
+    fileIN.open(paf);
+
+    getline(fileIN, nameR);
+
+    str temp = "";
+    while (getline(fileIN, temp))
+        leftOver = leftOver + temp + '\n';
 }
