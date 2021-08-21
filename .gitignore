@@ -5,8 +5,10 @@
 
 ## Baka files are not needed, I guess?
 *.baka
-tests/ # mah tests folder
-uMgrData/ # ofc useless manager data folder is to be ignored
+tests/ 
+# mah tests folder
+uMgrData/ 
+# ofc useless manager data folder is to be ignored
 # Baka files are some of the data storing files of the crap I make
 
 # User-specific files
