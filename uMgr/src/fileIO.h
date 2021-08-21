@@ -49,9 +49,18 @@ void readTrackerFile(ifstream& file, bool& choice); // only for settings.baka
 
 // write to files
 
+void splitFile(str& paf, str& nameR, str& leftOver, str& name); // split the name and log
+
 void writeFile(str paf, str& details, str& date, str& time, str name = "");
 // write file for others
 
 void writeFile(str paf, str& season, str& episode, str& details, str& date, str& time, str name = "");
-// write file for Anime
+// write file for Anime!!!
+
+void writeFile(str paf, str& chapter, str& page, str& details, str& date, str& time, bool shit /* useless param for distinguishing */, str name = "");
+// write file for Manga!!!
+
+void writeFile(str paf, str& part, str& details, str& date, str& time, str name = "");
+// write file for movies
+
 void writeFile(str paf, bool choice);
