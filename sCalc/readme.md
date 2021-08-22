@@ -17,4 +17,9 @@ You may fully and completely reformat your drive if you don't know how to reset 
 
 a mac is far out of my reach. Can't even set a virtual machine...
 
-this ain't a goddamn virus, Win10 says its a virus (y god?😭😭) but it's completely safe.
+this ain't a goddamn virus, Win10 says its a virus (😭😭) but it's completely safe.
+
+
+Its sad😥😢😢
+
+![Sad Life](https://github.com/Someone1206/assetsForMe/blob/main/ghub/mySadLyfe.png)
