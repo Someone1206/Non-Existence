@@ -318,7 +318,7 @@ void writeToll(str& data, str& genre) {
         char c = (char)1;
 
         while (getline(fileRe, temp) && count < 20) {
-            if (temp.find(c) == str::npos)
+            if (temp.find(c) != str::npos) // darn it, stupid me...
                 count++;
             fileReW << temp << endl;
         }
