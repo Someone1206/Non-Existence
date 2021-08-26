@@ -63,15 +63,25 @@ bool isspace(str& string1) {
  * <!-- LastLogs.baka (LastLogs)-->
  * (char)1
  * <genre>
- * <name>
- * <details>
+ * <entry>
  * (char)1
  * (char)1
  * ...
  * ...
  * ...
- * ...shows last 10 logs
+ * ... shows last 10 logs
  *
+ * <!-- AllLogs.hentai -->
+ * <-- may be really memory intensive -->
+ * (char)1
+ * <genre>
+ * <entry>
+ * (char)1
+ * (char)1
+ * ...
+ * ...
+ * ...
+ * ... stores and may show all logs
  *
  * <!-- GenIndexer.baka (G_IndexerAndData)-->
  *
@@ -96,7 +106,7 @@ void readFile(ifstream& file, ReadOptions options, int history, bool isLLog) {
     str line = "";
     int counter = 0;
 
-    history = (bool)history * history + ((!(bool)history) * -1) + (((bool)history) * 1); 
+    history = (bool)history * history + ((!(bool)history) * -1) + (((bool)history) * 1);
     /*
      * ☝☝this takes avg. of 1000 μs when numbers are between 0 and 50
      *
@@ -107,7 +117,7 @@ void readFile(ifstream& file, ReadOptions options, int history, bool isLLog) {
      *     history = -1;
      * ☝☝ this takes avg of 1000 μs when numbers are large (>500 idk y?)
      * when 0, avg of 2100 μs is needed, therefore, its inefficient.
-     * 
+     *
      * here μ = https://seeklogo.com/images/M/mew-logo-8F891D0488-seeklogo.com.png
     */
     // if history is 0, print all -> -1, else print the number of logs from first and add 1 to it
@@ -241,72 +251,147 @@ void readTrackerFile(ifstream& file, bool& choice) {
 }
 
 
+void writeToal(str& data, str& genre) {
+    str paf = folderN + fsep + "AllLogs.hentai";
+    ifstream fileR(paf);
+    if (!fileR.is_open()) {
+        prl(fileR.is_open());
+        prl("くそが! Can't open AllLogs.hentai ditch me");
+        return;
+    }
+    str tempFilePaf = paf + ".temp";
+    ofstream fileW(tempFilePaf);
+    fileW << (char)1 << endl;
+    {
+        str temp = "";
+        while (getline(fileR, temp))
+            fileW << temp << endl;
+    }
 
+    fileR.close();
+    fileW.close();
+    {
+        ofstream fileReW(paf);
+        ifstream fileRe(tempFilePaf);
+        
+        fileReW << (char)1 << endl << genre << endl << data << endl;
 
-
-// !!!!!! for Anime ofc !!!!!!
-void writeFile(str paf, str& season, str& episode, str& details, str& date, str& time, str name) {
-    str line = "", nameR = "";
-
-    splitFile(paf, nameR, line, name);
-
-    ofstream fileOUT(paf);
-
-    fileOUT << nameR << endl;
-    fileOUT << (char)1 << endl;
-    fileOUT << date << endl << time << endl << season << endl << episode << endl;
-    fileOUT << details << endl;
-    fileOUT << line;
+        {
+            str temp = "";
+            while (getline(fileRe, temp))
+                fileReW << temp << endl;
+        }
+    }
+    fs::remove(tempFilePaf);
 }
 
-// for Manga ofc!!!
-void writeFile(str paf, str& chapter, str& page, str& details, str& date, str& time, bool shit, str name) {
-    str line = "", nameR = "";
+void writeToll(str& data, str& genre) {
+    str paf = folderN + fsep + "LastLogs.baka";
+    ifstream fileR(paf);
+    if (!fileR.is_open()) {
+        prl(fileR.is_open());
+        prl("くそが! Can't open LastLogs.baka ditch me");
+        return;
+    }
+    str tempFilePaf = paf + ".temp";
+    
+    ofstream fileW(tempFilePaf);
+    
+    fileW << (char)1 << endl;
+    // write to temp file
+    {
+        str temp = "";
+        while (getline(fileR, temp))
+            fileW << temp << endl;
+    }
 
-    splitFile(paf, nameR, line, name);
+    fileR.close();
+    fileW.close();
+    {
+        ofstream fileReW(paf);
+        ifstream fileRe(tempFilePaf);
+        
+        fileReW << (char)1 << endl << genre << endl << data << endl;
 
-    ofstream fileOUT(paf);
+        int count = 0;
+        str temp = "";
+        char c = (char)1;
 
-    fileOUT << nameR << endl;
-    fileOUT << (char)1 << endl;
-    fileOUT << date << endl << time << endl << chapter << endl << page << endl;
-    fileOUT << details << endl;
-    fileOUT << line;
+        while (getline(fileRe, temp) && count < 20) {
+            if (temp.find(c) == str::npos)
+                count++;
+            fileReW << temp << endl;
+        }
+        
+    }
+    fs::remove(tempFilePaf);
 }
 
-// write file for Movies!
-void writeFile(str paf, str& part, str& details, str& date, str& time, str name) {
-    str line = "", nameR = "";
+// a really inefficient way of writing to the starting of file
+void writeFile(str paf, str& data, str genre, int option, str name) {
 
-    splitFile(paf, nameR, line, name);
+    if ((option & Create) == Create)
+    {
+        if (!fs::exists(paf))
+        {
+            ofstream file(paf);
+            if (isspace(name))
+            {
+                prl("No name provided");
+                return;
+            }
+            file << name << endl << (char)1 << endl;
+        }
+    }
+    if ((option & NQuit) == NQuit)
+        return;
+    if ((option & Add) == Add) {
+        std::thread wAllLog(writeToal, ref(data), ref(genre));
+        std::thread wll(writeToll, ref(data), ref(genre));
+        
+        ifstream fileR(paf);
+        if (!fileR.is_open()) {
+            prl(fileR.is_open());
+            prl("Damn! Can't open a file, I am useless ditch me.");
+            return;
+        }
 
-    ofstream fileOUT(paf);
+        str tempFilePaf = paf + ".temp", name = "";
 
-    fileOUT << nameR << endl;
-    fileOUT << (char)1 << endl;
-    fileOUT << date << endl << time << endl << part << endl;
-    fileOUT << details << endl;
-    fileOUT << line;
+        ofstream fileW(tempFilePaf);
+        getline(fileR, name);
+        // write to temp file
+        {
+            str temp = "";
+            while (getline(fileR, temp))
+                fileW << temp << endl;
+        }
+        fileR.close();
+        fileW.close();
+
+        // rewriting to the file again
+        {
+            ofstream fileReW(paf);
+            ifstream fileR(tempFilePaf);
+            fileReW << name << endl << (char)1 << endl;
+            fileReW << data << endl;
+
+            str temp = "";
+            while (getline(fileR, temp))
+                fileReW << temp << endl;
+        }
+        fs::remove(tempFilePaf);
+
+        wll.join();
+        wAllLog.join();
+    }
 }
 
-// for others
-void writeFile(str paf, str& details, str& date, str& time, str name) {
-    str line = "", nameR = "";
-
-    splitFile(paf, nameR, line, name);
-
-    ofstream fileOUT(paf);
-
-    fileOUT << nameR << endl;
-    fileOUT << (char)1 << endl;
-    fileOUT << date << endl << time << endl << details << endl;
-    fileOUT << line;
-}
 
 // only for settings file
-void writeFile(str paf, bool choice) {
+void writeFile(bool choice, str paf) {
     ofstream file;
-    
+
     if (!fs::exists(paf)) {
         ofstream f;
         f.open(paf);
@@ -316,23 +401,4 @@ void writeFile(str paf, bool choice) {
     file.open(paf);
     file << choice;
     file.close();
-}
-
-void splitFile(str& paf, str& nameR, str& leftOver, str& name) {
-    if (!fs::exists(paf)) {
-        ofstream file;
-        file.open(paf);
-        file << name << endl;
-        file << (char)1;
-        file.close();
-    }
-
-    ifstream fileIN;
-    fileIN.open(paf);
-
-    getline(fileIN, nameR);
-
-    str temp = "";
-    while (getline(fileIN, temp))
-        leftOver = leftOver + temp + '\n';
 }
