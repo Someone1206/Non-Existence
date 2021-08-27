@@ -16,3 +16,5 @@ I'm not sure about windows because mingw gives stupid, fu*#ed up errors. Clang g
 clang++ -O3  uMgr.cpp fileIO.cpp -o uMgr.exe -pthread -std=c++17 -Wall
 ```
 (mind you clang sometimes gives large executable sizes so you may need more optimization flags for both win and linux)
+
+_**[I'm poor mac is out of my reach even vm doesn't work]**_
