@@ -48,11 +48,13 @@ int main()
 
 		if (ip == "")
 		{
-			// watch anime
+			// watch anime or you can cry or you can regret this application's and mine's existence
 		}
+		else if (ip == "/c" || ip == "/cls" || ip == "/clear")
+			CLEAR();
 		else if (ip == "/abt" || ip == "/about")
 		{
-			prl("Version 2.0");
+			prl("Version 2.2.0");
 			prl("This crap is obviously made by a depressed, lonely, mentally retarded and stupid 15 y/o kid");
 			prl("Umm... about this calculator--->");
 			prl("\tIt dosen't support brackets of any form.");

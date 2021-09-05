@@ -12,9 +12,15 @@ using str = std::string;
 #if _WIN32
 #include <Windows.h>
 #define WAIT(t) Sleep(t)
-#else
+#define CLEAR() system("cls")
+#elif (__LINUX__) || (__gnu_linux__) || (__linux__) // CLEAR() may not work on mac
 #include <unistd.h>
 #define WAIT(t) usleep(t * 1000)  // deprecated but okay dont need anything else
+#define CLEAR() std::cout << u8"\033[2J\033[1;1H" // I guess this doesn't work on mac
+#else
+#include <unistd.h>
+#define WAIT(t) usleep(t * 1000) // 
+#define CLEAR() system("clear")
 #endif // _WIN32
 
 
@@ -46,10 +52,9 @@ double long mulDiv(str& exp);
 double long expr(str& exp);
 
 
-
-
 static const char* help[4] = {
 	"   Type \'/h\'   (without the quotes) and press enter for help,\n"
+	"   Type \'/c\'   (without the quotes) and press enter to clear the cluttered screen,\n"
 	"   Type \'/qq\'  (without the quotes) and press enter to quit this crap,\n"
 	"   Type \'/s\'   (without the quotes) and press enter to start calculating.\n"
 	"   Type \'/abt\' (without the quotes) and press enter to know about me(creator ofc) and this calculator.\n"
@@ -63,10 +68,12 @@ static const char* help[4] = {
 	"   Alternates for /set -qq -1 -> /set -qq -69, /set -qq -true\t\t:)\n"
 	"   Alternates for /set -cs -0 -> /set -cs -false\n"
 	"   Alternates for /set -qq -0 -> /set -qq -false\n"
-	"   ALternates for /h -> /help.",
+	"   ALternates for /h -> /help."
+	"   Alternates for /c -> /cls, /clear.\n",
 
 	"   WUt!?\n"
 	"   \'/h\'   for help,\n"
+	"   \'/c\'   to clear the screen,\n"
 	"   \'/qq\'  to quit this crap,\n"
 	"   \'/s\'   to start calculating.\n"
 	"   \'/abt\' to know about me(creator ofc) and this calculator.\n"
@@ -80,10 +87,12 @@ static const char* help[4] = {
 	"   Alternates for /set -qq -1 -> /set -qq -69, /set -qq -true\n"
 	"   Alternates for /set -cs -0 -> /set -cs -false\n"
 	"   Alternates for /set -qq -0 -> /set -qq -false\n"
-	"   ALternates for /h -> /help.\n",
+	"   ALternates for /h -> /help.\n"
+	"   Alternates for /c -> /cls, /clear.\n",
 
 	"   You have already asked help many times\n"
 	"   \'/h\'   for help,\n"
+	"   \'/c\'   to clear the screen,\n"
 	"   \'/qq\'  to quit this crap,\n"
 	"   \'/s\'   to start calculating.\n"
 	"   \'/abt\' to know about me and this calculator.\n"
@@ -94,6 +103,7 @@ static const char* help[4] = {
 	"   \'/set -qq -0\' to undo the ^|above|^.\n",
 
 	"   \'/h\'   for help,\n"
+	"   \'/c\'   to clear the screen,\n"
 	"   \'/qq\'  to quit this crap,\n"
 	"   \'/s\'   to start calculating.\n"
 	"   \'/abt\' to know about me and this calculator.\n"
@@ -106,6 +116,7 @@ static const char* help[4] = {
 
 static const char* helpc[4] = {
 	"   Type \'/h\'   (without the quotes) and press enter for help,\n"
+	"   Type \'/c\'   (without the quotes) and press enter to clear the cluttered screen,\n"
 	"   Type \'/qq\'  (without the quotes) and press enter to quit this crap,\n"
 	"   Type \'/q\'   (without the quotes) and press enter to go back to cmd mode(why?).\n"
 	"   Type \'/abt\'   (without the quotes) and press enter to know about me(creator ofc) and this calculator.\n"
@@ -118,10 +129,12 @@ static const char* helpc[4] = {
 	"   Alternates for /set -qq -1 -> /set -qq -69, /set -qq -true\t\t:)\n"
 	"   Alternates for /set -cs -0 -> /set -cs -false\n"
 	"   Alternates for /set -qq -0 -> /set -qq -false\n"
-	"   ALternates for /h -> /help.\n",
+	"   Alternates for /h -> /help.\n"
+	"   Alternates for /c -> /cls, /clear.\n",
 
 	"   WUt!?\n"
 	"   \'/h\'   for help,\n"
+	"   \'/c\'   to clear the cluttered screen,\n"
 	"   \'/qq\'  to quit this crap,\n"
 	"   \'/abt\' to know about me(creator ofc) and this calculator.\n"
 	"   \'/q\'   to go back to cmd mode(why?).\n"
@@ -134,10 +147,12 @@ static const char* helpc[4] = {
 	"   Alternates for /set -qq -1 -> /set -qq -69, /set -qq -true\n"
 	"   Alternates for /set -cs -0 -> /set -cs -false\n"
 	"   Alternates for /set -qq -0 -> /set -qq -false\n"
-	"   ALternates for /h -> /help.\n",
+	"   Alternates for /h -> /help.\n"
+	"   Aternates for /c -> /cls, /clear.\n",
 
 	"   You have already asked help many times\n"
 	"   \'/h\'   for help,\n"
+	"   \'/c\'   to clear the screen,\n"
 	"   \'/qq\'  to quit this crap,\n"
 	"   \'/abt\' to know about me(creator ofc) and this calculator.\n"
 	"   \'/q\'   to go back to cmd mode(why?).\n"
@@ -148,6 +163,7 @@ static const char* helpc[4] = {
 	"   \'/set -qq -0\' to undo the ^|above|^.\n",
 
 	"   \'/h\'   for help,\n"
+	"   \'/c\'   to clear the screen,\n"
 	"   \'/qq\'  to quit this crap,\n"
 	"   \'/abt\' to know about me and this calculator.\n"
 	"   \'/q\'   to go back to cmd mode(why?).\n"
